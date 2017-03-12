@@ -1,12 +1,10 @@
 import React from 'react'
 import Backbone from 'backbone'
 
-const HomePage = React.createClass({
+const EmailComponent = React.createClass(){
 	render: {
-		return(
-			<div>
-				
-			</div>
+		return
+		(
 			)
 	}
-})
+}
