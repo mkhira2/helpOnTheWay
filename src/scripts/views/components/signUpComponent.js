@@ -6,8 +6,8 @@ import UserNameComponent from './views/components/formComponents/userName.js'
 import PasswordComponent from './views/components/formComponents/password.js'
 
 var SignUpComponent = React.createClass({
-	
-	render: function(){
+	render: function () {
+
 		return(
 			<div className = "SignUpComponent">
 			
