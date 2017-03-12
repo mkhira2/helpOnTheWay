@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from '../init'
-
 //<Banner /> goes in 
 //setting empty strings to store form inputs
 var inputObj = {}
@@ -14,7 +13,7 @@ var inputObj = {}
 var GroupSignupView = React.createClass({
 	render: function() {
 		return(
-			<div className='body'>
+			<div className='body container'>
 				<GroupSignupForm />
 			</div>
 		)
@@ -31,17 +30,17 @@ var GroupSignupForm = React.createClass({
 	render: function() {
 		console.log(this.state.inputValue)
 		return(
-			<div className="groupSignupBody">
-				<h2 className='formHeader'>
-				Group Signup:
+			<form className="groupSignupBody">
+				<h2 className="formHeader text-center">
+				Group Signup
 				</h2>
-				<form className="groupSignupForm">
-					<input  type='text' className='groupNameInput' placeholder='Group Name'/>
-					<input value={this.state.inputValue} type='text' className='groupPurposeInput' placeholder='Group Purpose'/>
-					<input value={this.state.inputValue} type='text' className='groupDescriptionInput' placeholder='Group Description'/>
+				<form className="groupSignupForm form-group">
+					<input  type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
+					<input value={this.state.inputValue} type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
+					<input value={this.state.inputValue} type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
 				</form>
-				<button onClick={this.updateInputValue}>Submit</button>
-			</div>
+				<button className="btn btn-primary" onClick={this.updateInputValue}>Submit</button>
+			</form>
 		)
 	}
 })
