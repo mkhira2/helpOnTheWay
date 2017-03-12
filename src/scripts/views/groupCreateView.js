@@ -31,15 +31,15 @@ var GroupSignupForm = React.createClass({
 		console.log(this.state.inputValue)
 		return(
 			<form className="groupSignupBody">
-				<h2 className='formHeader '>
-				Group Signup:
+				<h2 className="formHeader text-center">
+				Group Signup
 				</h2>
 				<form className="groupSignupForm form-group">
-					<input  type='text' className='groupNameInput form-control' placeholder='Group Name'/>
-					<input value={this.state.inputValue} type='text' className='groupPurposeInput form-control' placeholder='Group Purpose'/>
-					<input value={this.state.inputValue} type='text' className='groupDescriptionInput form-control' placeholder='Group Description'/>
+					<input  type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
+					<input value={this.state.inputValue} type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
+					<input value={this.state.inputValue} type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
 				</form>
-				<button onClick={this.updateInputValue}>Submit</button>
+				<button className="btn btn-primary" onClick={this.updateInputValue}>Submit</button>
 			</form>
 		)
 	}
