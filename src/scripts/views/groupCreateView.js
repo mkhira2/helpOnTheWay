@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from '../init'
+import HeaderComponent from './headerComponent'
+import FooterComponent from './footerComponent'
 //<Banner /> goes in 
 //setting empty strings to store form inputs
 var inputObj = {}
@@ -10,11 +12,13 @@ var inputObj = {}
 
 //setting up structure for the page, banner is a placeholder for the banner used by the rest of the site
 //GroupSignupForm is defined below
-var GroupSignupView = React.createClass({
+var GroupSignUpView = React.createClass({
 	render: function() {
 		return(
 			<div className='body container'>
+				<HeaderComponent />
 				<GroupSignupForm />
+				<FooterComponent />
 			</div>
 		)
 	}
@@ -30,7 +34,7 @@ var GroupSignupForm = React.createClass({
 	render: function() {
 		console.log(this.state.inputValue)
 		return(
-			<form className="groupSignupBody">
+			<div className="groupSignupBody">
 				<h2 className="formHeader text-center">
 				Group Signup
 				</h2>
@@ -40,9 +44,9 @@ var GroupSignupForm = React.createClass({
 					<input value={this.state.inputValue} type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
 				</form>
 				<button className="btn btn-primary" onClick={this.updateInputValue}>Submit</button>
-			</form>
+			</div>
 		)
 	}
 })
 
-export default GroupSignupView
+export default GroupSignUpView
