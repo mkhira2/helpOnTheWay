@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import HomePage from './views/homePage'
-import HeaderComponent from './views/headerComponent'
 import GroupSignUpView from './views/groupCreateView'
 
 

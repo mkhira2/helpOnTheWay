@@ -32,7 +32,6 @@ var GroupSignupForm = React.createClass({
 		}
 	},
 	render: function() {
-		console.log(this.state.inputValue)
 		return(
 			<div className="groupSignupBody">
 				<h2 className="formHeader text-center">
