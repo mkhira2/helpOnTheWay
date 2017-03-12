@@ -4,6 +4,7 @@ import Backbone from 'backbone'
 import init from './init'
 import HomePage from './views/homePage'
 import GroupSignUpView from './views/groupCreateView'
+import NavBarComponent from './views/components/navBar'
 
 
 var app = function() {
