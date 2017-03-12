@@ -7,7 +7,7 @@ import PasswordComponent from './views/components/formComponents/password.js'
 
 var SignUpComponent = React.createClass({
 	
-	render: {
+	render: function () {
 		return(
 			<div className = "SignUpComponent">
 			
