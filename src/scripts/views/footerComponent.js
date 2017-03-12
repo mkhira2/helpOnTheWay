@@ -8,7 +8,7 @@ var FooterComponent = React.createClass({
 			<div className="navBar">
 				<a href="#home">Home</a>
 				<a href="#groups">Groups</a>
-				<a href="#home">Contact</a>
+				<a href="#contact">Contact</a>
 
 			</div>
 		)

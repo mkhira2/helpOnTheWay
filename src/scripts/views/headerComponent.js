@@ -10,9 +10,8 @@ var HeaderComponent = React.createClass({
 			<div className="headerComponent" id = "headerComponent">
 				<NavBarComponent navButtons = 
 					{{"button1": {"name": "home", "link": "#home"},
-					"button2": {"name": "about", "link": "#about"},
-					"button3": {"name": "contact", "link": "#contact"},
-					"button4": {"name": "blog", "link": "#blog"}}
+					"button2": {"name": "contact", "link": "#contact"},
+					"button3": {"name": "groups", "link": "#groups"}}
 				}/>
 			</div>
 		)
