@@ -11,3 +11,5 @@ const PasswordComponent = React.createClass(){
 			)
 	}
 }
+
+export default PasswordComponent
