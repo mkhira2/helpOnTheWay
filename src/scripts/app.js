@@ -4,8 +4,24 @@ import Backbone from 'backbone'
 import init from './init'
 
 
-const app = function() {
-  document.querySelector('.container').innerHTML = `<h1>helpOnTheWay</h1>`
+var app = function() {
+	var HelpRouter = Backbone.Router.extend({
+		routes: {
+			"home": "showLoginPage",
+			"groups/:group": "showGroupsPage",
+			"*defaultRoute": "showLoginPage"
+		},
+
+		showLoginPage: function() {
+			ReactDOM.render(<HomePage />, document.querySelector('.container'))
+		},
+
+		showGroupsPage: function() {
+			
+		}
+	})
+	new HelpRouter
+	Backbone.history.start()
 }
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..
