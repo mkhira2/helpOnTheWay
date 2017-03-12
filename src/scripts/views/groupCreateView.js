@@ -13,7 +13,7 @@ var inputObj = {}
 var GroupSignupView = React.createClass({
 	render: function() {
 		return(
-			<div className='body'>
+			<div className='body container'>
 				<GroupSignupForm />
 			</div>
 		)
@@ -30,7 +30,7 @@ var GroupSignupForm = React.createClass({
 	render: function() {
 		console.log(this.state.inputValue)
 		return(
-			<form className="groupSignupBody row">
+			<form className="groupSignupBody">
 				<h2 className='formHeader '>
 				Group Signup:
 				</h2>
