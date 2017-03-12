@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import HomePage from './views/homePage'
+import HeaderComponent from './views/headerComponent'
 
 
 var app = function() {
@@ -17,7 +19,7 @@ var app = function() {
 		},
 
 		showGroupsPage: function() {
-			
+
 		}
 	})
 	new HelpRouter
