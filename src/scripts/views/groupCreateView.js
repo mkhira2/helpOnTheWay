@@ -23,9 +23,9 @@ var GroupSignupView = React.createClass({
 
 //sets up the layout of the mhp submission form
 var GroupSignupForm = React.createClass({
-	submitData: function(ev) {
-		
-	},
+	getInitialState: function() {
+
+	}
 	render: function() {
 		return(
 			<div className="groupSignupBody">
@@ -36,6 +36,7 @@ var GroupSignupForm = React.createClass({
 					<input type='text' className='groupNameInput' placeholder='Group Name'/>
 					<input type='text' className='groupPurposeInput' placeholder='Group Purpose'/>
 					<input type='text' className='groupDescriptionInput' placeholder='Group Description'/>
+				</form>
 			</div>
 		)
 	}
