@@ -9,7 +9,7 @@ var SignUpComponent = React.createClass({
 	
 	render: function () {
 		return(
-			<div className = "SignUpComponent">
+			<div className = "SignUpComponent row container">
 			
 				<EmailComponent />
 				<UserNameComponent />
