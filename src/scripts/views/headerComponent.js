@@ -7,13 +7,13 @@ var HeaderComponent = React.createClass({
 	
 	render: function() {
 		return (
-			<div className="headerComponent" id = "headerComponent">
+			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
 				<NavBarComponent navButtons = 
 					{{"button1": {"name": "home", "link": "#home"},
 					"button2": {"name": "contact", "link": "#contact"},
 					"button3": {"name": "groups", "link": "#groups"}}
 				}/>
-			</div>
+			</nav>
 		)
 	}
 })
