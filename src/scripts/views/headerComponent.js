@@ -14,6 +14,7 @@ var HeaderComponent = React.createClass({
 					"button3": {"name": "contact", "link": "#contact"},
 					"button4": {"name": "blog", "link": "#blog"}}
 				}/>
+			</div>
 		)
 	}
 })
