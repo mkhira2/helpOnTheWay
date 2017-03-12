@@ -13,7 +13,7 @@ let Message = require('../db/messageSchema').Message
       User.find(req.query , "-password", function(err, results){
         if(err) return res.json(err) 
         res.json(results)
-      })
+      }).populate('group')
     })
 
   apiRouter
@@ -21,7 +21,7 @@ let Message = require('../db/messageSchema').Message
       User.findById(req.params._id, "-password", function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      })
+      }).populate('group')
     })
     .put('/users/:_id', function(req, res){
 
@@ -67,7 +67,7 @@ let Message = require('../db/messageSchema').Message
       Group.findById(req.params._id, function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      })
+      }).populate('members')
     })
   apiRouter
     .put('/groups/:_id/user/:_userid', function(req, res){
@@ -89,7 +89,20 @@ let Message = require('../db/messageSchema').Message
               }
               else {
                 group_record.members.push(user_record)
-                res.json(Object.assign(group_record))
+                user_record.group.push(group_record)
+                group_record.save(function(err){
+                  if (err) {
+                    res.status(500).send(err)
+                  }
+                });
+
+                user_record.save(function(err){
+                  if (err) {
+                    res.status(500).send(err)
+                  }
+                });
+
+                res.json(Object.assign(user_record))
               }
             })
           }
