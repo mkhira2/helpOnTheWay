@@ -1,10 +1,29 @@
+/*--------------------------------------------------
+ALWAYS INCLUDE
+--------------------------------------------------*/
+
+// FOR REFERENCE
+
+// Military gold #F3CF45
+// red #e63946
+// pearl #f1faee
+// teal #a8dadc
+// sky blue #457b9d
+// royal blue #1d3557
+
+// font-family: 'Exo 2', sans-serif;
+// font-family: 'PT Sans', sans-serif;
+// font-family: 'Raleway', sans-serif;
+
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
 }
 
-h1 {
-	font-size: 300px;
-	text-align: center;
-	color: fuchsia;
+img {
+	max-width: 100%;
 }
+
+/*--------------------------------------------------
+BASIC LAYOUT
+--------------------------------------------------*/
