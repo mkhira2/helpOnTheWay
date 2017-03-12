@@ -7,11 +7,13 @@ import SignUpComponent from './components/signUpComponent.js'
 const HomePage = React.createClass({
 	render: function() {
 		return (
-			<form className = "homePageComponent">
+			<div>
 				<HeaderComponent />
-				<SignUpComponent />
+				<form className = "homePageComponent">
+					<SignUpComponent />
+				</form>
 				<FooterComponent />
-			</form>
+			</div>
 		)
 	}
 })
