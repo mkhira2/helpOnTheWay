@@ -1,0 +1,13 @@
+import Reach from 'react'
+import Backbone from 'backbone'
+
+const PasswordComponent = React.createClass(){
+	render: {
+		return (
+				<div className="form-group">
+					<label>Password</label>
+					<input className="form-control" placeholder="password" />
+				</div>
+			)
+	}
+}
