@@ -5,13 +5,14 @@ import init from './init'
 import HomePage from './views/homePage'
 import GroupSignUpView from './views/groupCreateView'
 import NavBarComponent from './views/components/navBar'
-
+import SingleGroupView from './views/groupViews/singleGroupView'
 
 var app = function() {
 	var HelpRouter = Backbone.Router.extend({
 		routes: {
 			"home": "showLoginPage",
-			"groups": "showGroupsPage",
+			"registergroup": "showGroupsPage",
+			"group": "showSingleGroup",
 			"*defaultRoute": "showLoginPage"
 		},
 
@@ -22,6 +23,9 @@ var app = function() {
 		showGroupsPage: function() {
 			ReactDOM.render(<GroupSignUpView />, document.querySelector('.container'))
 
+		},
+		showSingleGroup: function (){
+			ReactDOM.render(<SingleGroupView />, document.querySelector('.container'))
 		}
 	})
 	new HelpRouter
