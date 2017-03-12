@@ -1,9 +1,9 @@
 import React from 'react'
 import Backbone from 'backbone'
-import EmailComponent from './views/components/formComponents/email.js'
-import SubmitComponent from './views/components/formComponents/submit.js'
-import UserNameComponent from './views/components/formComponents/userName.js'
-import PasswordComponent from './views/components/formComponents/password.js'
+import EmailComponent from './formComponents/email.js'
+import SubmitComponent from './formComponents/submit.js'
+import UserNameComponent from './formComponents/userName.js'
+import PasswordComponent from './formComponents/password.js'
 
 var SignUpComponent = React.createClass({
 	render: function () {
