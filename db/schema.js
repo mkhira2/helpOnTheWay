@@ -9,9 +9,10 @@ const usersSchema = new mongoose.Schema({
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
   
-   // example of optional fields
   name:      { type: String },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  group:     [{type: mongoose.Schema.Types.ObjectId,
+              ref: 'Group'}]
 
 })
 
