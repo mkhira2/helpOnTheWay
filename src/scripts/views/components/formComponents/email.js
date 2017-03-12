@@ -2,7 +2,7 @@ import React from 'react'
 import Backbone from 'backbone'
 
 const EmailComponent = React.createClass(){
-	render: {
+	render: function (){
 		return
 		(
 			<div className = "form-group">
