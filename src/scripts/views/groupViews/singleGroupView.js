@@ -1,12 +1,16 @@
 import React from 'react'
 import Backbone from 'backbone'
-import MessageTextComponent from './groupViews/groupComponents/messageCreate'
+import MessageTextComponent from './groupComponents/messageCreate'
+import HeaderComponent from '../headerComponent.js'
+import FooterComponent from '../footerComponent.js'
 
-const SingleGroupView = React.creatClass({
+const SingleGroupView = React.createClass({
 	render: function (){
 		return(
-			<div>\
-				<MessageComponent />
+			<div>
+				<HeaderComponent />
+				<MessageTextComponent />
+				<FooterComponent />
 			</div>
 			)
 	}

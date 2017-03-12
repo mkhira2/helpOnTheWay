@@ -1,8 +1,8 @@
 import React from 'react'
 import Backbone from 'backbone'
-import FlareComponent from './groupViews/groupComponents/flare'
+import FlareComponent from './flare'
 
-const MessageTextComponent = React.createClasse({
+const MessageTextComponent = React.createClass({
 	render: function (){
 		return(
 			<div>
@@ -10,7 +10,7 @@ const MessageTextComponent = React.createClasse({
 					<label>Enter Text</label>
 					<textarea className="form-control" rows="7"></textarea>
 				</div>
-				<div>
+				<div className="form-inline">
 				<button className="btn btn-success">Post</button> 
 				<FlareComponent />
 				</div>
