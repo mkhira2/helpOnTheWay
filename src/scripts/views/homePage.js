@@ -5,7 +5,7 @@ import FooterComponent from './views/components/footerComponent.js'
 import SignUpComponent from './views/components/signUpComponent.js'
 
 const HomePage = React.createClass({
-	render: {
+	render: function () {
 		return(
 			<form className = "homePageComponent">
 				<HeaderComponent />
