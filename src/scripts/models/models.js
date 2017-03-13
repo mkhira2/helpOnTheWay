@@ -67,22 +67,30 @@ const User = UserAuthModel.extend({
 
 export const GroupCollection = Backbone.Collection.extend ({
     model: GroupModel,
-    url: '/api/groups'
+    urlRoot: '/api/groups'
 })
 
 export const GroupModel = Backbone.Model.extend ({
     idAttribute: '_id',
-    url: '/api/groups/:_id'
+    urlRoot: '/api/groups/'
 })
+
+// backbone will automatically construct
+// /api/groups/:groupId for a put request
+// and use
+// /api/groups/ for a post request
+
+// if he wants a special endpoint for something like adding someone to a group
+// you might have to use $.post (see docs) instead of backbone
 
 export const MessageCollection = Backbone.Collection.extend ({
     model: MessageModel,
-    url: '/api/message'
+    urlRoot: '/api/message'
 })
 
 export const MessageModel = Backbone.Model.extend ({
     idAttribute: '_id',
-    url: '/api/message'
+    urlRoot: '/api/message'
 })
 
 export {User, GroupCollection, GroupModel, MessageCollection, MessageModel}
