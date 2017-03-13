@@ -6,7 +6,7 @@ const EmailComponent = React.createClass({
 		return (
 			<div className="form-group">
 				<label>Email Address</label>
-				<input type="email" className="form-control" placeholder="Enter Email Address" />
+				<input type="text" className="form-control" name="email" placeholder="Enter Email Address" />
 			</div>
 		)
 	}

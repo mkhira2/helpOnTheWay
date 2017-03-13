@@ -1,13 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
+import NavBarComponent from './components/navBar.js'
 
 var HeaderComponent = React.createClass({
+	
 	render: function() {
 		return (
-			<div className="jumbotron">
-				<p className="pageTitle">Help on the Way</p>
-			</div>
+			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
+				<NavBarComponent navButtons = 
+					{{"button1": {"name": "Home", "link": "#home"},
+					"button2": {"name": "Contact", "link": "#contact"},
+					"button3": {"name": "Groups", "link": "#registergroup"}}
+				}/>
+			</nav>
 		)
 	}
 })

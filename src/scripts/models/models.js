@@ -59,10 +59,38 @@ UserAuthModel.getCurrentUser = function() {
 // ^^ DO NOT TOUCH ^^
 
 // but, you may extend the UserAuthModel Constructor (which is a Backbone Model)
-const User = UserAuthModel.extend({
+export const User = UserAuthModel.extend({
 	initialize: function(){
 
 	}
 })
 
-export default User
+export const GroupCollection = Backbone.Collection.extend ({
+    model: GroupModel,
+    urlRoot: '/api/groups'
+})
+
+export const GroupModel = Backbone.Model.extend ({
+    idAttribute: '_id',
+    urlRoot: '/api/groups/'
+})
+
+// backbone will automatically construct
+// /api/groups/:groupId for a put request
+// and use
+// /api/groups/ for a post request
+
+// if he wants a special endpoint for something like adding someone to a group
+// you might have to use $.post (see docs) instead of backbone
+
+export const MessageCollection = Backbone.Collection.extend ({
+    model: MessageModel,
+    urlRoot: '/api/message'
+})
+
+export const MessageModel = Backbone.Model.extend ({
+    idAttribute: '_id',
+    urlRoot: '/api/message'
+})
+
+

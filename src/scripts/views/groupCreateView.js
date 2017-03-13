@@ -26,23 +26,18 @@ var GroupSignUpView = React.createClass({
 
 //sets up the layout of the mhp submission form
 var GroupSignupForm = React.createClass({
-	getInitialState: function() {
-		return {
-			inputValue: ''
-		}
-	},
 	render: function() {
 		return(
 			<div className="groupSignupBody">
 				<h2 className="formHeader text-center">
 				Group Signup
 				</h2>
-				<form className="groupSignupForm form-group">
-					<input  type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
-					<input value={this.state.inputValue} type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
-					<input value={this.state.inputValue} type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
+				<form className="groupSignupForm form-group" id="createGroup" action="/api/groups" method="post">
+					<input  name="name" type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
+					<input  name="purpose" type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
+					<input  name="description" type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
+					<button type="submit" value="Submit" form="createGroup" className="btn btn-primary">Submit</button>
 				</form>
-				<button className="btn btn-primary" onClick={this.updateInputValue}>Submit</button>
 			</div>
 		)
 	}
