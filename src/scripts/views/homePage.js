@@ -12,10 +12,11 @@ const HomePage = React.createClass({
 
 	render: function() {
 		return (
-			<div>
+			<div className="container">
 				<HeaderComponent />
-				<div className="auth-container">
+				<div className="auth-container row">
 				<SignUpComponent />
+				<LoginComponent />
 				</div>
 				<FooterComponent />
 			</div>
