@@ -5,7 +5,7 @@ const SubmitComponent = React.createClass({
 	render: function() {
 		return (
 			<div className="form-group">
-				<button className="btn btn-primary">Submit</button>
+				<button type="submit" Value="Value" form="register" className="btn btn-primary">Submit</button>
 			</div>
 		)
 	}

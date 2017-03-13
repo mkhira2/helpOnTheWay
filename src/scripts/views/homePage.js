@@ -11,10 +11,9 @@ const HomePage = React.createClass({
 		return (
 			<div>
 				<HeaderComponent />
-
-				<SignUpComponent />
-				<LoginComponent />
-
+				<form action="/auth/register" method="post" id="register" className = "homePageComponent">
+					<SignUpComponent />
+				</form>
 				<FooterComponent />
 			</div>
 		)
