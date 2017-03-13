@@ -15,15 +15,9 @@ const HomePage = React.createClass({
 			<div>
 				<HeaderComponent />
 				<div className="auth-container">
-<<<<<<< HEAD
-					
-						<SignUpComponent />
-						<LoginComponent />
-		
-				
-=======
+
 				<SignUpComponent />
->>>>>>> 606ae301963c0afdb7a3d230bf1ac2cfdf890539
+
 				</div>
 				<FooterComponent />
 			</div>

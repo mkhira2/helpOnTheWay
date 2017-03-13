@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Users/jamesjsewell/Documents/veterans_hackathon/helpOnTheWay/src/scripts/views/homePage.js: Unexpected token (18:1) while parsing file: /Users/jamesjsewell/Documents/veterans_hackathon/helpOnTheWay/src/scripts/views/homePage.js");
