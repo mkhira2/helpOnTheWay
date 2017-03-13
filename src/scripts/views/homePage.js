@@ -3,7 +3,7 @@ import Backbone from 'backbone'
 import HeaderComponent from './headerComponent.js'
 import FooterComponent from './footerComponent.js'
 import SignUpComponent from './components/signUpComponent.js'
-import LoginComponent from './components/formComponents/loginComponent.js'
+import LoginComponent from './components/formComponents/loginComponent'
 
 const HomePage = React.createClass({
 	componentWillMount:function(){
@@ -15,11 +15,15 @@ const HomePage = React.createClass({
 			<div>
 				<HeaderComponent />
 				<div className="auth-container">
+<<<<<<< HEAD
 					
 						<SignUpComponent />
 						<LoginComponent />
 		
 				
+=======
+				<SignUpComponent />
+>>>>>>> 606ae301963c0afdb7a3d230bf1ac2cfdf890539
 				</div>
 				<FooterComponent />
 			</div>
@@ -28,7 +32,3 @@ const HomePage = React.createClass({
 })
 
 export default HomePage
-
-	// <form  id="login" >
-	// 					<LoginComponent />
-	// 				</form>
