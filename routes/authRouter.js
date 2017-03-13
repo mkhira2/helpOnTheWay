@@ -1,4 +1,4 @@
- let Router = require('express').Router;
+let Router = require('express').Router;
 let passport = require ('passport')
 let User = require('../db/schema.js').User
 let checkAuth = require('../config/middleware.js').checkAuth
@@ -27,12 +27,12 @@ authRouter
       })
     })
   })
-
 authRouter
   .get('/current', function (req, res) {
     if (req.user) res.json({user: req.user});
     else res.json({user: null})
   })
+authRouter
   .post('/login', function(req,res,next){
     passport.authenticate('local', function(err,user,info) {
       if (err || !user) {
@@ -54,6 +54,7 @@ authRouter
       next()
     })(req,res,next)  
   })  
+authRouter
   .get('/logout', function (req, res) {
     if (req.user) {
       // console.log(req.user)
