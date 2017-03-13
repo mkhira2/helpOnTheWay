@@ -6,7 +6,11 @@ import ACTIONS from '../../actions.js'
 var SignUpComponent = React.createClass({
 	_createAction: function(evt) {
 		evt.preventDefault()
-		console.log(evt.target.email.value)
+		ACTIONS.createNewUser({
+			email:evt.target.email.value,
+			userName:evt.target.userName.value,
+			password:evt.target.password.value
+		})
 	},
 	render: function () {
 		return(
