@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema({
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-  
+  userName:  {type: String},
   createdAt: { type: Date, default: Date.now },
   groups:   [{
       type: mongoose.Schema.Types.ObjectId,

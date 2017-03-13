@@ -6,7 +6,6 @@ let checkAuth = require('../config/middleware.js').checkAuth
 
 const authRouter = Router()
 
-
 authRouter
   .post('/register', function(req, res){
     // passport appends json-data to request.body
