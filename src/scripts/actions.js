@@ -19,7 +19,7 @@ let ACTIONS = {
          promise.then(
              (user) => {
                  console.log('success')
-                 STORE.users.push(user)
+                 
              }
          )
      }
