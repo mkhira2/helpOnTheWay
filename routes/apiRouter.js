@@ -8,12 +8,12 @@ let Message = require('../db/messageSchema').Message
 
   
   apiRouter
-    .get('/users', function(req, res){
+    .get('/users', function(req, res){  
       console.log(req)
       User.find(req.query , "-password", function(err, results){
         if(err) return res.json(err) 
         res.json(results)
-      })
+      }).populate('group')
     })
 
   apiRouter
@@ -21,25 +21,9 @@ let Message = require('../db/messageSchema').Message
       User.findById(req.params._id, "-password", function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      })
+      }).populate('group')
     })
-    .put('/users/:_id', function(req, res){
-
-      User.findByIdAndUpdate(req.params._id, req.body, function(err, record){
-          if (err) {
-            res.status(500).send(err)
-          }
-          else if (!record) {
-            res.status(400).send('no record found with that id')
-          }
-          else {
-            res.json(Object.assign({},req.body,record))
-          }
-      })
-    })
-
-    
-
+  apiRouter
     .delete('/users/:_id', function(req, res){
       User.remove({ _id: req.params._id}, (err) => {
         if(err) return res.json(err)
@@ -67,29 +51,42 @@ let Message = require('../db/messageSchema').Message
       Group.findById(req.params._id, function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      })
+      }).populate('members')
     })
   apiRouter
-    .put('/groups/:_id/user/:_userid', function(req, res){
+    .put('/groups/:_groupID/users/:_userID', function(req, res){
 
-      Group.findById(req.params._id, function(err, group_record){
+      Group.findById(req.params._groupID, function(err, group_record){
           if (err) {
             res.status(500).send(err)
           }
           else if (!group_record) {
-            res.status(400).send('no group record found with that id')
+            return res.status(400).send('no group record found with that id')
           }
           else {
-            User.findById(req.params._userid, function(err, user_record){
+            User.findById(req.params._userID, function(err, user_record){
               if (err) {
-                res.status(500).send(err)
+                 return res.status(500).send(err)
               }
               else if (!user_record) {
-                res.status(400).send('no user record found with that id')
+                 return res.status(400).send('no user record found with that id')
               }
               else {
+                user_record.groups.push(group_record)
+                user_record.save(function(err){
+                  if (err) {
+                    return res.status(500).send(err)
+                  }
+                });
                 group_record.members.push(user_record)
-                res.json(Object.assign(group_record))
+                group_record.save(function(err){
+                  if (err) {
+                     return res.status(500).send(err)
+                  }
+                   else {
+                    res.json(user_record)
+                  }
+                });                
               }
             })
           }
@@ -115,6 +112,7 @@ let Message = require('../db/messageSchema').Message
     })
   })
 
+  apiRouter
     .delete('/groups/:_id', function(req, res){
       User.remove({ _id: req.params._id}, (err) => {
         if(err) return res.json(err)
@@ -124,7 +122,44 @@ let Message = require('../db/messageSchema').Message
         })
       })  
     })
+    //---------------------------------------------------------------
+    //                    ROUTES FOR MESSAGE
+    //---------------------------------------------------------------
+ apiRouter
+    .get('/messages', function(req, res){
+      Group.findById(req.query, function(err, results) {
+        if(err) return res.json(err) 
+        results.json(results.messages)
+      })
+    })
 
+  apiRouter
+    .get('/messages/:_id', function(req, res){
+      Message.findById(req.params._id, function(err, record){
+        if(err || !record ) return res.json(err) 
+        res.json(record)
+      })
+    })
+
+   apiRouter
+    .get('/messages', function(req, res){
+      Group.find(req.query , function(err, results){
+        if(err) return res.json(err) 
+        res.json(results)
+      })
+    })
   
+  apiRouter
+  .post('/messages', function(req, res){
+    let newMessage = new Message(req.body)
+    newMessage.posterID = req.query.posterID;
+    newMessage.posterName = req.query.posterName;
+    newMessage.groupID = req.query.groupID;
 
+    newMessage.save(function(err, record){
+        if(err) return res.status(500).send('server/db error on attempt to save message to db')
+        res.json(newMessage)
+      })
+  })
+  
 module.exports = apiRouter
