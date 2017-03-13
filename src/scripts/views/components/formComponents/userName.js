@@ -7,7 +7,7 @@ const UserNameComponent = React.createClass({
 		return (
 		<div className="form-group">
 			<label>User Name</label>
-			<input placeholder="Enter User Name" className="form-control" />
+			<input placeholder="Enter User Name" type="text" name="username" className="form-control" />
 		</div>
 		)
 	}
