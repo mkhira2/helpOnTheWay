@@ -65,4 +65,24 @@ const User = UserAuthModel.extend({
 	}
 })
 
-export default User
+export const GroupCollection = Backbone.Collection.extend ({
+    model: GroupModel,
+    url: '/api/groups'
+})
+
+export const GroupModel = Backbone.Model.extend ({
+    idAttribute: '_id',
+    url: '/api/groups/:_id'
+})
+
+export const MessageCollection = Backbone.Collection.extend ({
+    model: MessageModel,
+    url: '/api/message'
+})
+
+export const MessageModel = Backbone.Model.extend ({
+    idAttribute: '_id',
+    url: '/api/message'
+})
+
+export {User, GroupCollection, GroupModel, MessageCollection, MessageModel}

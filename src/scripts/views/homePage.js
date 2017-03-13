@@ -9,12 +9,14 @@ const HomePage = React.createClass({
 	
 	render: function() {
 		return (
-			<form className = "homePageComponent">
+			<div>
 				<HeaderComponent />
+
 				<SignUpComponent />
 				<LoginComponent />
+
 				<FooterComponent />
-			</form>
+			</div>
 		)
 	}
 })

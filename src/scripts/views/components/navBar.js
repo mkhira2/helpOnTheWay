@@ -10,7 +10,6 @@ var	NavBarComponent = React.createClass({
 		var buttonsArray = []
 		
 		for(var btnProp in this.props.navButtons){
-			console.log(btnProp)
 			buttonsArray.push(<NavButtonComponent buttonsProps = {this.props.navButtons[btnProp]}/>)
 			
 		}
@@ -23,7 +22,7 @@ var	NavBarComponent = React.createClass({
 	render: function() {
 
 		return(
-			<nav className = "navBarComponent">{this._makeNavButtons()}</nav>
+			<ul className = "navBarComponent navbar-nav mr-auto">{this._makeNavButtons()}</ul>
 		)
 	}
 })
@@ -32,10 +31,10 @@ var	NavBarComponent = React.createClass({
 var NavButtonComponent = React.createClass({
 	
 	render: function(){
-		console.log('rendering button')
 		return(
-
-			<a href = {this.props.buttonsProps.link} className="navButton" id={this.props.buttonsProps.name}>{this.props.buttonsProps.name}</a>
+			<li className = "nav-item">
+				<a href = {this.props.buttonsProps.link} className="navButton nav-link" id={this.props.buttonsProps.name}>{this.props.buttonsProps.name}</a>
+			</li>
 		)
 	}
 
