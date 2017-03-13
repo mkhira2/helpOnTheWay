@@ -10,7 +10,7 @@ var SignUpComponent = React.createClass({
 
 		return(
 			<div className = "SignUpComponent container">
-			
+				<h2>Register:</h2>
 				<EmailComponent />
 				<UserNameComponent />
 				<PasswordComponent />
