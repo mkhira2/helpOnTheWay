@@ -4,8 +4,6 @@ import Backbone from 'backbone'
 import init from '../init'
 import HeaderComponent from './headerComponent'
 import FooterComponent from './footerComponent'
-//<Banner /> goes in 
-//setting empty strings to store form inputs
 var inputObj = {}
 
 
