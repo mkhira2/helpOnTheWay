@@ -20,6 +20,7 @@ let ACTIONS = {
              (user) => {
                  console.log('success')
                  STORE.users.push(user)
+                
              }
          )
      }
