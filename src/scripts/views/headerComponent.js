@@ -7,7 +7,7 @@ var HeaderComponent = React.createClass({
 	
 	render: function() {
 		return (
-			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
+			<nav className="headerComponent navbar navbar-light py-1 bg-faded navbar-toggleable-md">
 				<NavBarComponent navButtons = 
 					{{"button1": {"name": "home", "link": "#home"},
 					"button2": {"name": "contact", "link": "#contact"},
