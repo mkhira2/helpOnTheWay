@@ -11,11 +11,15 @@ const groupSchema = new mongoose.Schema({
   members: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
-  }]
- 
+  }], 
 })
 
 module.exports = {
   Group: mongoose.model('Group', groupSchema)
 }
 // 
+
+//58c5dff83b195c35bfe3b4f0
+
+//group
+//58c5e0203b195c35bfe3b4f1
