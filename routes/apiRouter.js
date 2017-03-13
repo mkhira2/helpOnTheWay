@@ -23,6 +23,15 @@ let Message = require('../db/messageSchema').Message
         res.json(record)
       }).populate('group')
     })
+
+  apiRouter
+    .get('/users/', function(req, res){
+      User.find(req.query, function(err, record){
+        if(err || !record ) return res.json(err) 
+        res.json(record)
+      }).populate('group')
+    })
+
   apiRouter
     .delete('/users/:_id', function(req, res){
       User.remove({ _id: req.params._id}, (err) => {
@@ -127,9 +136,9 @@ let Message = require('../db/messageSchema').Message
     //---------------------------------------------------------------
  apiRouter
     .get('/messages', function(req, res){
-      Group.findById(req.query, function(err, results) {
+      Message.find(req.query, function(err, results) {
         if(err) return res.json(err) 
-        results.json(results.messages)
+        res.json(results)
       })
     })
 
@@ -138,14 +147,6 @@ let Message = require('../db/messageSchema').Message
       Message.findById(req.params._id, function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      })
-    })
-
-   apiRouter
-    .get('/messages', function(req, res){
-      Group.find(req.query , function(err, results){
-        if(err) return res.json(err) 
-        res.json(results)
       })
     })
   
