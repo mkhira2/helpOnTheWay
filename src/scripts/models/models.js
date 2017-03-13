@@ -93,4 +93,4 @@ export const MessageModel = Backbone.Model.extend ({
     urlRoot: '/api/message'
 })
 
-export {User, GroupCollection, GroupModel, MessageCollection, MessageModel}
+
