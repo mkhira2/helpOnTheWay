@@ -4,7 +4,7 @@ import {GroupCollection, GroupModel, MessageCollection, MessageModel} from './mo
 
 const STORE = _.extend( Backbone.Events, {
 
-    data: {
+    _data: {
         groupCollection: new GroupCollection(),
         groupModel: new GroupModel(),
         messageModel: new MessageModel(),
@@ -12,11 +12,15 @@ const STORE = _.extend( Backbone.Events, {
     },
 
     _getData: function() {
-        return _.clone(this.data)
+        return this._data
     },
 
-    _broadcastChange: function() {
-        this.trigger('updateContent')
+    _get: function(key){
+        return this._data[key]
+    },
+
+    _emitChange: function() {
+        this.trigger('STOREChange')
     },
 
     _initialize: function() {
