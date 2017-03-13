@@ -9,7 +9,7 @@ const HomePage = React.createClass({
 		return (
 			<div>
 				<HeaderComponent />
-				<form className = "homePageComponent">
+				<form action="/auth/register" method="post" id="register" className = "homePageComponent">
 					<SignUpComponent />
 				</form>
 				<FooterComponent />
