@@ -2,7 +2,6 @@ import React from 'react'
 import Backbone from 'backbone'
 // import ACTIONS from 'actions.js'
 
-<<<<<<< HEAD
 const SubmitComponent = React.createClass({
 	render: function() {
 		return (
@@ -11,7 +10,7 @@ const SubmitComponent = React.createClass({
 			</div>
 		)
 	}
-=======
+
 // const SubmitComponent = React.createClass({
 // 	_createNewUser: ACTIONS.create
 // 	render: function() {
@@ -21,7 +20,7 @@ const SubmitComponent = React.createClass({
 // 			</div>
 // 		)
 // 	}
->>>>>>> 76b73048a8dfd6487bbcf199c21ca728afe5bcd8
+
 
 // })
 

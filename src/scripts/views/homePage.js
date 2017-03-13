@@ -17,6 +17,7 @@ const HomePage = React.createClass({
 				<div className="auth-container">
 					
 						<SignUpComponent />
+						<LoginComponent />
 		
 				
 				</div>
