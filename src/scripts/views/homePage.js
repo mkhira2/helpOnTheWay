@@ -6,15 +6,20 @@ import SignUpComponent from './components/signUpComponent.js'
 import LoginComponent from './components/formComponents/loginComponent.js'
 
 const HomePage = React.createClass({
-	
+	componentWillMount:function(){
+		
+	},
+
 	render: function() {
 		return (
 			<div>
 				<HeaderComponent />
-
-				<SignUpComponent />
-				<LoginComponent />
-
+				<div className="auth-container">
+					
+						<SignUpComponent />
+		
+				
+				</div>
 				<FooterComponent />
 			</div>
 		)
@@ -22,3 +27,7 @@ const HomePage = React.createClass({
 })
 
 export default HomePage
+
+	// <form  id="login" >
+	// 					<LoginComponent />
+	// 				</form>

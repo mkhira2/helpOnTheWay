@@ -9,9 +9,9 @@ var HeaderComponent = React.createClass({
 		return (
 			<nav className="headerComponent navbar navbar-light py-1 bg-faded navbar-toggleable-md">
 				<NavBarComponent navButtons = 
-					{{"button1": {"name": "home", "link": "#home"},
-					"button2": {"name": "contact", "link": "#contact"},
-					"button3": {"name": "groups", "link": "#registergroup"}}
+					{{"button1": {"name": "Home", "link": "#home"},
+					"button2": {"name": "Contact", "link": "#contact"},
+					"button3": {"name": "Groups", "link": "#registergroup"}}
 				}/>
 			</nav>
 		)

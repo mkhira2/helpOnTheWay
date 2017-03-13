@@ -6,7 +6,7 @@ const PasswordComponent = React.createClass({
 		return (
 				<div className="form-group">
 					<label>Password</label>
-					<input type="password" className="form-control" placeholder="Enter Password" />
+					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
 				</div>
 			)
 	}

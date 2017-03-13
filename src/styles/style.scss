@@ -24,10 +24,15 @@ img {
 	max-width: 100%;
 }
 
+html{
+	font-size:14px;
+}
+
 /*--------------------------------------------------
 BASIC LAYOUT
 --------------------------------------------------*/
 
+<<<<<<< HEAD
 /*-----------HEADER-------------*/
 
 
@@ -68,3 +73,27 @@ nav.headerComponent{
 }
 
 
+=======
+.jumbotron {
+	text-align: center;
+}
+
+ #register,
+ #login
+ {
+	display:inline-block;
+	vertical-align: top;
+	width:50%;
+	padding:1rem;
+}
+
+#Home,#Groups,#Contact {
+	font-size:1.2rem;
+	font-weight:600;
+}
+
+#Home:hover,#Groups:hover,#Contact:hover {
+	text-decoration:underline;
+}
+
+>>>>>>> b9f924ccb15eee23ae204a51bc8edd48bd226815

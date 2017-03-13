@@ -104,8 +104,7 @@ let Message = require('../db/messageSchema').Message
 
   apiRouter
   .post('/groups', function(req, res){
-    // passport appends json-data to request.body
-    // console.log(req.body)
+
     let newGroup = new Group(req.body)
 
     Group.find({name: req.body.name}, function(err, results){

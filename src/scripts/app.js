@@ -13,7 +13,7 @@ var app = function() {
 			"home": "showLoginPage",
 			"registergroup": "showGroupsPage",
 			"group": "showSingleGroup",
-			"*defaultRoute": "showLoginPage"
+			"*defaultRoute": "showLoginPage" 
 		},
 
 		showLoginPage: function() {
