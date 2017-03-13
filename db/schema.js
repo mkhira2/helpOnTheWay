@@ -8,14 +8,19 @@ const usersSchema = new mongoose.Schema({
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-  
-  name:      { type: String },
+  userName:  {type: String},
   createdAt: { type: Date, default: Date.now },
-  group:     [{type: mongoose.Schema.Types.ObjectId,
-              ref: 'Group'}]
+  groups:   [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Group'
+  }], 
 
 })
 
 module.exports = {
   User: mongoose.model('User', usersSchema)
 }
+
+//58c5e0203b195c35bfe3b4f1
+
+//58c5dff83b195c35bfe3b4f0

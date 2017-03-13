@@ -10,7 +10,6 @@ import LoginButton from './loginButton.js'
 var LoginComponent = React.createClass({
 	
 	render: function() {
-		console.log('making the login component')
 		return (
 
 			<div className="loginComponent" id = "loginComponent">

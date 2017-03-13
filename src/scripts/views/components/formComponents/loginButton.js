@@ -7,7 +7,7 @@ const LoginButton = React.createClass({
 			<div className="form-group">
 				<button className="btn btn-primary">Login</button>
 			</div>
-			)
+		)
 	}
 
 })
