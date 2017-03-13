@@ -3,15 +3,21 @@ import Backbone from 'backbone'
 import HeaderComponent from './headerComponent.js'
 import FooterComponent from './footerComponent.js'
 import SignUpComponent from './components/signUpComponent.js'
+import LoginComponent from './components/formComponents/loginComponent'
 
 const HomePage = React.createClass({
+	componentWillMount:function(){
+		
+	},
+
 	render: function() {
 		return (
-			<div>
+			<div className="container">
 				<HeaderComponent />
-				<form action="/auth/register" method="post" id="register" className = "homePageComponent">
-					<SignUpComponent />
-				</form>
+				<div className="auth-container row">
+				<SignUpComponent />
+				<LoginComponent />
+				</div>
 				<FooterComponent />
 			</div>
 		)

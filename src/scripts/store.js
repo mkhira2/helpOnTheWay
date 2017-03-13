@@ -12,7 +12,6 @@ const STORE = _.extend( Backbone.Events, {
     },
 
     _getData: function() {
-        // console.log(this.data)
         return _.clone(this.data)
     },
 
@@ -27,21 +26,8 @@ const STORE = _.extend( Backbone.Events, {
         this.data.messageCollection.on('sync update', this._broadcastChange.bind(this))
     },
 
-    _addGroup: function(groupModel) {
-        this.data.groupCollection.add(groupModel)
-    },
-
-    _addMessage: function(messageModel) {
-        this.data.messageCollection.add(messageModel)
-    }
-
-    //I don't know what this does???
-    _set: function(prop, value) {
-        // console.log(prop, value)
-        if(this.data[prop] === undefined) {
-            console.log('does not exist')
-        }
-        this.data[prop] = value
+    _set: function(attrs) {
+        this.data = _.extend({},this.data,attrs)
         this._broadcastChange()
     }
 })
