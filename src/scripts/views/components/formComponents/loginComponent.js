@@ -13,7 +13,7 @@ var LoginComponent = React.createClass({
 		return (
 
 			<div className="loginComponent" id = "loginComponent">
-				<h2>Login:</h2>
+				<h3>Login:</h3>
 				<UserNameComponent />
 				<PasswordComponent />
 				<LoginButton />

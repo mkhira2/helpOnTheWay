@@ -11,6 +11,8 @@ const STORE = _.extend( Backbone.Events, {
         messageCollection: new MessageCollection()
     },
 
+    
+
     _getData: function() {
         return _.clone(this.data)
     },
