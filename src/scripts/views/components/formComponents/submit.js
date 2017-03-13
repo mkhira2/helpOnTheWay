@@ -7,7 +7,7 @@ const SubmitComponent = React.createClass({
 			<div className="form-group">
 				<button className="btn btn-primary">Submit</button>
 			</div>
-			)
+		)
 	}
 
 })

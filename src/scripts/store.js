@@ -26,9 +26,7 @@ const STORE = _.extend( Backbone.Events, {
         this.data.messageCollection.on('sync update', this._broadcastChange.bind(this))
     },
 
-    //I don't know what this does???
     _set: function(attrs) {
-        // console.log(prop, value)
         this.data = _.extend({},this.data,attrs)
         this._broadcastChange()
     }
