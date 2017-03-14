@@ -13,9 +13,10 @@ var SignUpComponent = React.createClass({
 		})
 	},
 	render: function () {
+		console.log('rendering sign in')
 		return(
 			<div className = "SignUpComponent col-sm-5 offset-sm-1">
-				<form onSubmit={this._createAction}>
+				<form onSubmit={this._createAction} id="register">
 					<h3>Register:</h3>
 					<label>Email Address</label>
 					<input type="text" className="form-control" name="email" placeholder="Enter Email Address" />
@@ -23,7 +24,7 @@ var SignUpComponent = React.createClass({
 					<input placeholder="Enter User Name" type="text" name="userName" className="form-control" />
 					<label>Password</label>
 					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
-					<button type="submit" value="Value" form="register" className="btn btn-primary">Submit</button>	
+					<button type="submit" form="register" className="btn btn-primary">Submit</button>	
 				</form>
 			</div>
 		)
