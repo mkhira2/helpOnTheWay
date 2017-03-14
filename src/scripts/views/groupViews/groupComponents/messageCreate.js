@@ -1,9 +1,18 @@
 import React from 'react'
 import Backbone from 'backbone'
 import FlareComponent from './flare'
+var allPosts = []
 
-const MessageTextComponent = React.createClass({
-	render: function (){
+var testMessage = "something..dfaddas"
+var MessageTextComponent = React.createClass({
+	
+	_addToPosts: function(){
+		console.log('added message')
+		//allPosts.push(this) 
+		//console.log(allPosts)
+	},
+
+	render: function(){
 		return(
 			<div>
 				<div className="form-group">
@@ -11,13 +20,26 @@ const MessageTextComponent = React.createClass({
 					<textarea className="form-control" rows="7"></textarea>
 				</div>
 				<div className="form-inline">
-				<button className="btn btn-success">Post</button> 
+				<button className="btn btn-success" onClick={this._addToPosts()}>Post</button> 
 				<FlareComponent />
 				</div>
 			</div>
 			)
 	}
 
+})
+
+var PostsComponent = React.createClass({
+	
+	render: function(){
+		
+		return(
+
+			<div className="allPosts">
+				{this.props.messagesArray}
+			</div>
+		)
+	}
 })
 
 export default MessageTextComponent
