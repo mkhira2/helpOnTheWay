@@ -8,6 +8,7 @@ import NavBarComponent from './views/components/navBar'
 import SingleGroupPage from './views/singleGroupPage'
 import GroupsPage from './views/groupsPage'
 import ACTIONS from './actions.js'
+import STORE from './store.js'
 
 var app = function() {
 	var HelpRouter = Backbone.Router.extend({
@@ -35,12 +36,12 @@ var app = function() {
 			ReactDOM.render(<GroupsPage />, document.querySelector('.container'))
 		},
 		handleLogout: function(){
-			this.handleRedirect()
-			console.log('logged out')
-			console.log("a user is logging out",ACTIONS.getCurrentUserName())
-			ACTIONS.logUserOut()
-			console.log("no user! yea",ACTIONS.getCurrentUserName())
-
+			
+			if(STORE.loggedIn === true){
+				ACTIONS.logUserOut()
+				console.log("user " + ACTIONS.getCurrentUserName() + " has logged out")
+				this.handleRedirect()
+			}
 		},
 		handleRedirect: function(){
 			location.hash = "#home"

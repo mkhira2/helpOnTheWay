@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import NavBarComponent from './components/navBar.js'
+import ACTIONS from './../actions.js'
 
 var HeaderComponent = React.createClass({
 	
@@ -12,7 +13,7 @@ var HeaderComponent = React.createClass({
 					"button1": {"name": "Home", "link": "#home"},
 					"button2": {"name": "Groups", "link": "#allgroups"},
 					"button3": {"name": "CreateGroup", "link": "#registergroup"},
-					"button4": {"name": "logout", "link": "#logout"}
+					"button4": {"name": ACTIONS.loginOrLogout(), "link": "#"+ACTIONS.loginOrLogout()}
 				}}/>
 			</nav>
 		)

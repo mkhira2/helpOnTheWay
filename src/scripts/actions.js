@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
-
+STORE.loggedIn = false
 let ACTIONS = {
     createNewUser: function(userData){
         let promise = User.register(userData);
@@ -23,11 +23,24 @@ let ACTIONS = {
              (user) => {
                  location.hash=`allgroups`
                  this.getgroupCollection()
+                 STORE.loggedIn = true
              }
          )
     },
     logUserOut:function(){
-        User.logout()
+        
+        try{
+            console.log('logging out')
+            User.logout()
+            STORE.loggedIn = false
+        }
+        catch (e){
+            console.log('no user to logout')
+            return('notUser')
+            STORE.loggedIn = false
+        }
+        
+        
     },
     addUserToGroup:function(userID,groupID){
          return $.ajax({
@@ -41,8 +54,19 @@ let ACTIONS = {
           
     },
     getCurrentUserName:function(){
-        console.log(User.getCurrentUser().get('userName'))
-        return User.getCurrentUser().get('userName'); 
+        
+        try{
+            if(User.getCurrentUser().get('userName') != undefined ){
+                return User.getCurrentUser().get('userName'); 
+            }
+            else{
+                return('notUser')
+            }
+        }
+        catch (e){
+            console.log('no user')
+            return('notUser')
+        }
 
     },
     getgroupCollection:function(){
@@ -70,6 +94,24 @@ let ACTIONS = {
         promise.then(STORE.data.messageCollection.fetch({
             data: {"groupID": `${messageData.groupID}`}
         }))
+    },
+    loginOrLogout: function(){
+        
+        try{
+            
+            console.log(this.getCurrentUserName()? 'logout' : 'login')
+            
+            if(STORE.loggedIn === false){
+                return 'login'
+            }
+            else{
+                return 'logout'
+            }
+            
+        }
+        catch (e){
+            return ''
+        } 
     }
 }
 
