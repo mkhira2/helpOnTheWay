@@ -17,8 +17,9 @@ let ACTIONS = {
             }
         )
     },
-     logUserIn:function(email,data){
-         let promise = User.login(email,data)
+     logUserIn:function(username,password){
+        console.log(username,password)
+         let promise = User.login(username,password)
          promise.then(
              (user) => {
                  location.hash=`allgroups`

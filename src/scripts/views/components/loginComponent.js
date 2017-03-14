@@ -33,17 +33,14 @@ var LoginComponent = React.createClass({
 
 	_createAction: function(evt) {
 		evt.preventDefault()
-		ACTIONS.loginUserIn({
-			userName:evt.target.userName.value,
-			password:evt.target.password.value
-		})
+		ACTIONS.logUserIn(evt.target.userName.value,evt.target.password.value)
 	},
 
 	render: function() {
 		return (
 
 			<div className="loginComponent col-sm-5 justify-content-center">
-				<form onSubmit={this._createAction()}>
+				<form onSubmit={this._createAction}>
 					<h2>Login:</h2>
 					<label>User Name</label>
 					<input placeholder="Enter User Name" type="text" name="userName" className="form-control" />
