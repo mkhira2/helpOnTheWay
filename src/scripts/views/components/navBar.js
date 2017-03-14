@@ -10,6 +10,7 @@ var	NavBarComponent = React.createClass({
 		for(var btnProp in this.props.navButtons){
 			buttonsArray.push(<NavButtonComponent buttonsProps = {this.props.navButtons[btnProp]}/>)
 		}
+
 		return buttonsArray
 	},
 	
