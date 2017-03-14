@@ -23,7 +23,7 @@ var LoginComponent = React.createClass({
 					<input placeholder="Enter User Name" type="text" name="userName" className="form-control" />
 					<label>Password</label>
 					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
-					<button className="btn btn-primary">Login</button>
+					<button className="btn btn-success col-12 mt-2">Login</button>
 				</form>
 			</div>
 		)

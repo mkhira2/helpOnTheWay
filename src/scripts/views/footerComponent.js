@@ -5,12 +5,23 @@ import Backbone from 'backbone'
 var FooterComponent = React.createClass({
 	render: function() {
 		return (
-			<div className="navBar">
-				<a href="#home">Home</a>
-				<a href="#registergroup">Groups</a>
-				<a href="#contact">Contact</a>
+			<footer className="footer fixed-bottom navbar navbar-light mx-1 bg-faded navbar-toggleable-md">
+				<ul className="navbar-nav mx-2 mr-auto">
+					<li className = "nav-item mx-2">
+						<a href="#home" className="nav-link">Home</a>
+					</li>
+					<li className = "nav-item mx-2">
+						<a href="#registergroup" className="nav-link">Register Your Group</a>
+					</li>
+					<li className = "nav-item mx-2">
+						<a href="#allgroups" className="nav-link">Groups</a>
+					</li>
+					<li className = "nav-item mx-2">
+						<a href="#contact" className="nav-link">Contact</a>
+					</li>
+				</ul>
 
-			</div>
+			</footer>
 		)
 	}
 })
