@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
-STORE.loggedIn = false
+STORE.data.loggedIn = false
 let ACTIONS = {
     createNewUser: function(userData){
         let promise = User.register(userData);
@@ -23,7 +23,7 @@ let ACTIONS = {
              (user) => {
                  location.hash=`allgroups`
                  this.getgroupCollection()
-                 STORE.loggedIn = true
+                 STORE.data.loggedIn = true
              }
          )
     },
@@ -32,12 +32,12 @@ let ACTIONS = {
         try{
             console.log('logging out')
             User.logout()
-            STORE.loggedIn = false
+            STORE.data.loggedIn = false
         }
         catch (e){
             console.log('no user to logout')
             return('notUser')
-            STORE.loggedIn = false
+            STORE.data.loggedIn = false
         }
         
         
@@ -101,7 +101,7 @@ let ACTIONS = {
             
             console.log(this.getCurrentUserName()? 'logout' : 'login')
             
-            if(STORE.loggedIn === false){
+            if(STORE.data.loggedIn === false){
                 return 'login'
             }
             else{
