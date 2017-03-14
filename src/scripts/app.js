@@ -16,6 +16,7 @@ var app = function() {
 			"registergroup": "showGroupsPage",
 			"group/:groupId": "showSingleGroup",
 			"allgroups": "showAllGroups",
+			"logout": "handleLogout",
 			"*defaultRoute": "showLoginPage" 
 		},
 
@@ -32,6 +33,17 @@ var app = function() {
 		},
 		showAllGroups: function (){
 			ReactDOM.render(<GroupsPage />, document.querySelector('.container'))
+		},
+		handleLogout: function(){
+			this.handleRedirect()
+			console.log('logged out')
+			console.log("a user is logging out",ACTIONS.getCurrentUserName())
+			ACTIONS.logUserOut()
+			console.log("no user! yea",ACTIONS.getCurrentUserName())
+
+		},
+		handleRedirect: function(){
+			location.hash = "#home"
 		}
 	})
 	new HelpRouter

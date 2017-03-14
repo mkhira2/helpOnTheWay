@@ -16,7 +16,7 @@ let ACTIONS = {
             }
         )
     },
-     logUserIn:function(email,password){
+    logUserIn:function(email,password){
         console.log(email,password)
          let promise = User.login(email,password)
          promise.then(
@@ -25,8 +25,11 @@ let ACTIONS = {
                  this.getgroupCollection()
              }
          )
-     },
-     addUserToGroup:function(userID,groupID){
+    },
+    logUserOut:function(){
+        User.logout()
+    },
+    addUserToGroup:function(userID,groupID){
          return $.ajax({
 		    method: 'PUT',
 		    type: 'json',
@@ -38,7 +41,9 @@ let ACTIONS = {
           
     },
     getCurrentUserName:function(){
-        return User.getCurrentUser().get('userName');   
+        console.log(User.getCurrentUser().get('userName'))
+        return User.getCurrentUser().get('userName'); 
+
     },
     getgroupCollection:function(){
          return STORE.data.groupCollection.fetch()
