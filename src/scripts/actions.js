@@ -19,12 +19,6 @@ let ACTIONS = {
          promise.then(
              (user) => {
                  console.log('success')
-<<<<<<< HEAD
-                 STORE.users.push(user)
-                
-=======
-                 
->>>>>>> c609fd9994144d019353d9fb74a5f2c369770fb7
              }
          )
      }
