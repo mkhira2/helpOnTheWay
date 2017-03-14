@@ -27,8 +27,6 @@ let ACTIONS = {
          )
      },
      addUserToGroup:function(userID,groupID){
-         console.log(groupID);
-         console.log(userID)
          return $.ajax({
 		    method: 'PUT',
 		    type: 'json',
@@ -38,6 +36,10 @@ let ACTIONS = {
     getCurrentIDUser: function(userData){
          return User.getCurrentUser().get('_id');    
           
+    },
+    getGroups: function(){
+        console.log('fetching')
+         return STORE.data.groupCollection.fetch()
     }
 }
 

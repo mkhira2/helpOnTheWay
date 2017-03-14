@@ -9,7 +9,8 @@ import ACTIONS from '../actions'
 
 const GroupsPage = React.createClass({
 	componentWillMount: function(){
-		STORE.on('updateContent',() => {
+		let promise = ACTIONS.getGroups();
+		promise.then(() => {
 			this.setState({
 				groups:STORE._getgroupCollection()
 			})
@@ -36,7 +37,6 @@ const Groups = React.createClass({
 	 },
 
 	 render: function() {
-		
 	 	return (
 	 		<div className='groups' >
 	 			<h2>Groups</h2>

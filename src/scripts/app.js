@@ -7,6 +7,7 @@ import GroupSignUpView from './views/groupCreateView'
 import NavBarComponent from './views/components/navBar'
 import SingleGroupView from './views/groupViews/singleGroupView'
 import GroupsPage from './views/groupsPage'
+import ACTIONS from './actions.js'
 
 var app = function() {
 	var HelpRouter = Backbone.Router.extend({
@@ -24,9 +25,11 @@ var app = function() {
 
 		showGroupsPage: function() {
 			ReactDOM.render(<GroupSignUpView />, document.querySelector('.container'))
+		
 
 		},
 		showSingleGroup: function (){
+			
 			ReactDOM.render(<SingleGroupView />, document.querySelector('.container'))
 		},
 		showAllGroups: function (){
