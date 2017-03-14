@@ -28,7 +28,7 @@ var LoginComponent = React.createClass({
 			)
 		}
 		else{
-			return(<div></div>)
+			return(null)
 		}
 	}
 })
