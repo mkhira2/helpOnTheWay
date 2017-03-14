@@ -9,23 +9,19 @@ import ACTIONS from '../actions'
 
 const GroupsPage = React.createClass({
 	componentWillMount: function(){
-		let promise = ACTIONS.getGroups();
-		promise.then(() => {
-			this.setState({
-				groups:STORE._getgroupCollection()
-			})
+		ACTIONS.getMessagesByGroup()
+		STORE.on('updateContent', ()=> {
+			this.setState(STORE.data)
 		})
 	},
 	getInitialState: function() {
-		return {
-			groups: []
-		}
+		return STORE.data
 	},
 	render: function() {
 	 	return (
 	 		<div  className="container">
 				<HeaderComponent />
-	 			<Groups groups={this.state.groups} />
+	 			<Groups groups={this.state.groupCollection} />
 	 		</div>
 	 	)
  	}
@@ -54,6 +50,7 @@ const Group = React.createClass({
 		let userID = ACTIONS.getCurrentIDUser()
 		console.log(userID)
 		ACTIONS.addUserToGroup(userID,groupID)
+		location.hash=`group/${groupID}`
 	},
 	 render: function() {
 		  console.log(this)

@@ -138,6 +138,7 @@ let Message = require('../db/messageSchema').Message
       Message.find(req.query, function(err, results) {
         if(err) return res.json(err) 
         res.json(results)
+        console.log(results)
       })
     })
 
@@ -152,10 +153,7 @@ let Message = require('../db/messageSchema').Message
   apiRouter
   .post('/messages', function(req, res){
     let newMessage = new Message(req.body)
-    newMessage.posterID = req.query.posterID;
-    newMessage.posterName = req.query.posterName;
-    newMessage.groupID = req.query.groupID;
-
+    console.log(newMessage);
     newMessage.save(function(err, record){
         if(err) return res.status(500).send('server/db error on attempt to save message to db')
         res.json(newMessage)
@@ -163,3 +161,7 @@ let Message = require('../db/messageSchema').Message
   })
   
 module.exports = apiRouter
+
+//58c75d954233c96620f55bcd
+
+//58c744611fe9496192bcc4e0
