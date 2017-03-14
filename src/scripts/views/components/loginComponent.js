@@ -4,6 +4,7 @@ import Backbone from 'backbone'
 import ACTIONS from '../../actions.js'
 
 var LoginComponent = React.createClass({
+
 	_createAction: function(evt) {
 		evt.preventDefault()
 		ACTIONS.logUserIn(evt.target.emailLogin.value,evt.target.password.value)
