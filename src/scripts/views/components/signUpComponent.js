@@ -24,7 +24,7 @@ var SignUpComponent = React.createClass({
 					<input placeholder="Enter User Name" type="text" name="userName" className="form-control" />
 					<label>Password</label>
 					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
-					<button type="submit" form="register" className="btn btn-primary">Submit</button>	
+					<button type="submit" form="register" className="btn btn-primary mt-1">Submit</button>	
 				</form>
 			</div>
 		)
