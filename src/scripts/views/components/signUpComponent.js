@@ -13,6 +13,7 @@ var SignUpComponent = React.createClass({
 		})
 	},
 	render: function () {
+	
 		console.log('rendering sign in')
 		return(
 			<div className = "SignUpComponent col-sm-5 offset-sm-1 p-4">
@@ -28,6 +29,8 @@ var SignUpComponent = React.createClass({
 				</form>
 			</div>
 		)
+		
+		
 	}
 })
 

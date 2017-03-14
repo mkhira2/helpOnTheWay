@@ -11,7 +11,9 @@ var LoginComponent = React.createClass({
 	},
 
 	render: function() {
-		return (
+		console.log(this.props.loggedIn, "LOGGED IN")
+		if(this.props.loggedIn === false || this.props.loggedIn === undefined){
+			return (
 
 			<div className="loginComponent col-sm-5 offset-sm-1 p-4 ml-0">
 				<form onSubmit={this._createAction}>
@@ -23,7 +25,11 @@ var LoginComponent = React.createClass({
 					<button className="btn btn-success mt-1 col-sm-8 offset-sm-2">Login</button>
 				</form>
 			</div>
-		)
+			)
+		}
+		else{
+			return(<div></div>)
+		}
 	}
 })
 // justify-content-center
