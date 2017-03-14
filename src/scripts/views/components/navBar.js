@@ -13,7 +13,7 @@ var	NavBarComponent = React.createClass({
 			buttonsArray.push(<NavButtonComponent buttonsProps = {this.props.navButtons[btnProp]}/>)
 			
 		}
-
+		console.log(this.props.navButtons);
 		return buttonsArray
 
 	},
