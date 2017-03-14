@@ -66,8 +66,7 @@ export const User = UserAuthModel.extend({
 })
 
 export const GroupCollection = Backbone.Collection.extend ({
-    model: GroupModel,
-    urlRoot: '/api/groups'
+    url: '/api/groups'
 })
 
 export const GroupModel = Backbone.Model.extend ({
