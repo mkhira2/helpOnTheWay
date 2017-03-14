@@ -48,4 +48,4 @@ var AllMessagesComponent = React.createClass({
 	}
 })
 
-export default WriteMessageComponent
+export default MessageTextComponent

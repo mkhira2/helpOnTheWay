@@ -42,6 +42,7 @@ UserAuthModel.login = function(email, password) {
 		return userData
 	},(err)=> {
 		throw new Error(err.responseText)
+		console.log('no server response')
 	})
 }
 

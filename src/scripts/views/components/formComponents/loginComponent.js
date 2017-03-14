@@ -34,7 +34,7 @@ var LoginComponent = React.createClass({
 	_createAction: function(evt) {
 		evt.preventDefault()
 		ACTIONS.loginUserIn({
-			userName:evt.target.userName.value,
+			email:evt.target.userName.value,
 			password:evt.target.password.value
 		})
 	},
