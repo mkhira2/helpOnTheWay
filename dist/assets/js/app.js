@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Users/denis/Projects/TIY/Projects/helpOnTheWay/src/scripts/actions.js: Unexpected token (22:3) while parsing file: /Users/denis/Projects/TIY/Projects/helpOnTheWay/src/scripts/actions.js");

@@ -7,7 +7,7 @@ var LoginComponent = React.createClass({
 	render: function() {
 		return (
 
-			<div className="loginComponent" id = "loginComponent">
+			<div className="loginComponent col-sm-5 justify-content-center">
 				<form>
 					<h2>Login:</h2>
 					<label>User Name</label>
