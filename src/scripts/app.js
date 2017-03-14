@@ -5,7 +5,7 @@ import init from './init'
 import HomePage from './views/homePage'
 import GroupSignUpView from './views/groupCreateView'
 import NavBarComponent from './views/components/navBar'
-import SingleGroupView from './views/groupViews/singleGroupView'
+import SingleGroupPage from './views/singleGroupPage'
 import GroupsPage from './views/groupsPage'
 import ACTIONS from './actions.js'
 
@@ -14,7 +14,7 @@ var app = function() {
 		routes: {
 			"home": "showLoginPage",
 			"registergroup": "showGroupsPage",
-			"group": "showSingleGroup",
+			"group/:groupId": "showSingleGroup",
 			"allgroups": "showAllGroups",
 			"*defaultRoute": "showLoginPage" 
 		},
@@ -26,11 +26,9 @@ var app = function() {
 		showGroupsPage: function() {
 			ReactDOM.render(<GroupSignUpView />, document.querySelector('.container'))
 		
-
 		},
-		showSingleGroup: function (){
-			
-			ReactDOM.render(<SingleGroupView />, document.querySelector('.container'))
+		showSingleGroup: function (groupId){
+			ReactDOM.render(<SingleGroupPage groupID={groupId} />, document.querySelector('.container'))
 		},
 		showAllGroups: function (){
 			ReactDOM.render(<GroupsPage />, document.querySelector('.container'))

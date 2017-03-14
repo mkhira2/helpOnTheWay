@@ -3,7 +3,6 @@ import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
 
-
 let ACTIONS = {
     createNewUser: function(userData){
         let promise = User.register(userData);
@@ -22,7 +21,7 @@ let ACTIONS = {
          promise.then(
              (user) => {
                  location.hash=`allgroups`
-                 STORE.data.groupCollection.fetch()
+                 this.getgroupCollection()
              }
          )
      },
@@ -37,9 +36,34 @@ let ACTIONS = {
          return User.getCurrentUser().get('_id');    
           
     },
-    getGroups: function(){
-        console.log('fetching')
+    getCurrentUserName:function(){
+        return User.getCurrentUser().get('userName');   
+    },
+    getgroupCollection:function(){
          return STORE.data.groupCollection.fetch()
+    },
+    getMessagesByGroup: function(groupID){
+        return STORE.data.messageCollection.fetch({
+            data: {"groupID": `${groupID}`}
+        })
+    },
+    createNewMessage:function(messageData){
+        console.log(messageData)
+        var promise = $.ajax({
+		    method: 'POST',
+		    type: 'json',
+		    url: `api/messages/`,
+            data: {
+                posterID:ACTIONS.getCurrentIDUser(),
+                title: messageData.title,
+                body: messageData.body,
+                posterName:ACTIONS.getCurrentUserName(),
+                groupID:messageData.groupID
+            }
+         })
+        promise.then(STORE.data.messageCollection.fetch({
+            data: {"groupID": `${messageData.groupID}`}
+        }))
     }
 }
 

@@ -83,13 +83,11 @@ export const GroupModel = Backbone.Model.extend ({
 // you might have to use $.post (see docs) instead of backbone
 
 export const MessageCollection = Backbone.Collection.extend ({
-    model: MessageModel,
-    urlRoot: '/api/message'
+    url: '/api/messages'
 })
 
 export const MessageModel = Backbone.Model.extend ({
-    idAttribute: '_id',
-    urlRoot: '/api/message'
+    url: '/api/message'
 })
 
 
