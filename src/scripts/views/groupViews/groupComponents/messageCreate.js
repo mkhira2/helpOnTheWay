@@ -3,8 +3,7 @@ import Backbone from 'backbone'
 import FlareComponent from './flare'
 var allPosts = []
 
-var testMessage = "something..dfaddas"
-var MessageTextComponent = React.createClass({
+var WriteMessageComponent = React.createClass({
 	
 	_addToPosts: function(){
 		console.log('added message')
@@ -29,7 +28,7 @@ var MessageTextComponent = React.createClass({
 
 })
 
-var PostsComponent = React.createClass({
+var AllMessagesComponent = React.createClass({
 	
 	render: function(){
 		
@@ -42,4 +41,4 @@ var PostsComponent = React.createClass({
 	}
 })
 
-export default MessageTextComponent
+export default WriteMessageComponent
