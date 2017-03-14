@@ -11,17 +11,15 @@ const STORE = _.extend( Backbone.Events, {
         messageCollection: new MessageCollection()
     },
 
-    _getgroupCollection: function() {
-        return _.clone(this.data.groupCollection)
-    },
+    groupID: '',
+
 
     _broadcastChange: function() {
-        console.log('broadcasting event')
+        console.log('broadcasting')
         this.trigger('updateContent')
     },
 
     _initialize: function() {
-        console.log('initializing store')
         this.data.groupCollection.on('sync update', this._broadcastChange.bind(this)),
         this.data.groupModel.on('sync update', this._broadcastChange.bind(this)),
         this.data.messageModel.on('sync update', this._broadcastChange.bind(this)),

@@ -1,5 +1,6 @@
 import React from 'react'
 import Backbone from 'backbone'
+import STORE from '../../actions'
 
 //entire navbar
 var	NavBarComponent = React.createClass({
