@@ -33,20 +33,17 @@ var LoginComponent = React.createClass({
 
 	_createAction: function(evt) {
 		evt.preventDefault()
-		ACTIONS.loginUserIn({
-			email:evt.target.userName.value,
-			password:evt.target.password.value
-		})
+		ACTIONS.logUserIn(evt.target.emailLogin.value,evt.target.password.value)
 	},
 
 	render: function() {
 		return (
 
 			<div className="loginComponent col-sm-5 justify-content-center">
-				<form onSubmit={this._createAction()}>
+				<form onSubmit={this._createAction}>
 					<h2>Login:</h2>
 					<label>User Name</label>
-					<input placeholder="Enter User Name" type="text" name="userName" className="form-control" />
+					<input placeholder="Enter User Name" type="text" name="emailLogin" className="form-control" />
 					<label>Password</label>
 					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
 					<button className="btn btn-primary">Login</button>

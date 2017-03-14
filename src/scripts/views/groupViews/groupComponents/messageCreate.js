@@ -35,4 +35,17 @@ const MessageTextComponent = React.createClass({
 
 })
 
+var AllMessagesComponent = React.createClass({
+	
+	render: function(){
+		
+		return(
+
+			<div className="allPosts">
+				{this.props.messagesArray}
+			</div>
+		)
+	}
+})
+
 export default MessageTextComponent

@@ -2,7 +2,7 @@
 ALWAYS INCLUDE
 --------------------------------------------------*/
 
-// FOR REFERENCE
+/*// FOR REFERENCE
 
 // Military gold #F3CF45
 // red #e63946
@@ -13,7 +13,7 @@ ALWAYS INCLUDE
 
 // font-family: 'Exo 2', sans-serif;
 // font-family: 'PT Sans', sans-serif;
-// font-family: 'Raleway', sans-serif;
+// font-family: 'Raleway', sans-serif;*/
 
 * {
 	font-family: Helvetica, Arial, sans-serif;
@@ -32,6 +32,47 @@ html{
 BASIC LAYOUT
 --------------------------------------------------*/
 
+/*-----------HEADER-------------*/
+
+
+
+
+
+
+
+
+
+/*-----------NAVBAR-------------*/
+.navBarComponent{
+	background: none;
+}
+
+.nav-item{
+	color: #F3CF45;
+	padding: 0;
+	height: 10%;
+	background: none;
+	margin-left: .3em;
+	margin-right: .3em;
+	border-radius: .8em;
+    border: 2px solid #F3CF45;
+    width: 100%;
+    text-align: center;
+
+}
+
+a#navButton{
+	color: #F3CF45;
+	font-family: 'Exo 2', sans-serif;
+	font-size: .8em;
+}
+
+nav.headerComponent{
+	background: #1d3557;
+}
+
+
+=======
 .jumbotron {
 	text-align: center;
 }
@@ -46,3 +87,4 @@ BASIC LAYOUT
 	text-decoration:underline;
 }
 
+>>>>>>> b9f924ccb15eee23ae204a51bc8edd48bd226815
