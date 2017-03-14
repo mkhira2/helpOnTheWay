@@ -37,7 +37,7 @@ var app = function() {
 		},
 		handleLogout: function(){
 			
-			if(STORE.loggedIn === true){
+			if(STORE.data.loggedIn === true){
 				ACTIONS.logUserOut()
 				console.log("user " + ACTIONS.getCurrentUserName() + " has logged out")
 				this.handleRedirect()
