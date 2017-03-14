@@ -12,18 +12,18 @@ var LoginComponent = React.createClass({
 	render: function() {
 		return (
 
-			<div className="loginComponent col-sm-5 justify-content-center">
+			<div className="loginComponent col-sm-5 offset-sm-1 p-4 ml-0">
 				<form onSubmit={this._createAction}>
 					<h3>Login:</h3>
-					<label>User Name</label>
-					<input placeholder="Enter User Name" type="text" name="emailLogin" className="form-control" />
-					<label>Password</label>
-					<input type="password" className="form-control" name="password" placeholder="Enter Password" />
-					<button className="btn btn-primary">Login</button>
+					<label className="text-muted small">User Name</label>
+					<input placeholder="Enter User Name" type="text" name="emailLogin" className="form-control py-1" />
+					<label className="text-muted small">Password</label>
+					<input type="password" className="form-control py-1" name="password" placeholder="Enter Password" />
+					<button className="btn btn-success mt-1 col-sm-8 offset-sm-2">Login</button>
 				</form>
 			</div>
 		)
 	}
 })
-
+// justify-content-center
 export default LoginComponent
