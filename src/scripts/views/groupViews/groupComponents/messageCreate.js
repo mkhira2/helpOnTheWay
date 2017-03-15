@@ -26,9 +26,11 @@ const MessageTextComponent = React.createClass({
 					<input placeholder="Enter Description" type="text" name="description" className="form-control" />
 					<label>Body</label>
 					<textarea type="textarea" className="form-control" name="body" placeholder="Enter Body" ></textarea>
-					<button type="submit" form="newMessage" className="btn btn-primary">Submit</button>	
+					<div className= "row">
+					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3 offset-sm-1 my-1">Submit</button>	
+					<button className="btn btn-danger col-sm-3 offset-sm-4 my-1">Flare</button>
+					</div>
 				</form>
-				<FlareComponent />
 			</div>
 			)
 	}
