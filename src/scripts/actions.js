@@ -5,12 +5,10 @@ import STORE from './store'
 import $ from 'jquery'
 
 //sets the logged in status to false by defualt for now, will have continuity later
-STORE._set(STORE.data.loggedIn,false)
+STORE._set({loggedIn: false})
 
 //custom actions for the app
 let ACTIONS = {
-
-//************************* USER ACTIONS ***********************//
 
     //takes user data and creates a new user, then logs them in
     createNewUser: function(userData){
@@ -62,7 +60,7 @@ let ACTIONS = {
     },
 
     //returns the username of the current user
-    getCurrentUserName:function(){
+    getCurrentUserName: function(){
         
         try{
 
@@ -136,8 +134,6 @@ let ACTIONS = {
 
     },
 
-//************************* GROUP ACTIONS ***********************//
-
     //adds user to a group, takes the user's id and the groups id
     addUserToGroup:function(userID,groupID){
 
@@ -170,8 +166,6 @@ let ACTIONS = {
 
     },
 
-//************************* MESSAGE ACTIONS ***********************//
-
     //posts a message to the server given message data
     createNewMessage:function(messageData){
 
@@ -198,6 +192,7 @@ let ACTIONS = {
         }))
 
     },
+
     createNewGroup:function(groupData){
          var promise = $.ajax({
 		    method: 'POST',
@@ -213,6 +208,7 @@ let ACTIONS = {
              location.hash = `group/${groupInfo._id}`
          })
     },
+
     loginOrLogout: function(){
         
         try{
@@ -230,8 +226,6 @@ let ACTIONS = {
             return ''
         } 
     }
-    
-}
 
 }
 
