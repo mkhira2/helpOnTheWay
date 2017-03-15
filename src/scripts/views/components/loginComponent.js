@@ -22,7 +22,7 @@ var LoginComponent = React.createClass({
 					<input placeholder="Enter User Name" type="text" name="emailLogin" className="form-control py-1" />
 					<label className="text-muted small">Password</label>
 					<input type="password" className="form-control py-1" name="password" placeholder="Enter Password" />
-					<button className="btn btn-success mt-1 col-sm-8 offset-sm-2">Login</button>
+					<button className="btn mt-1 col-sm-8 offset-sm-2" id="loginButton">Login</button>
 				</form>
 			</div>
 			)

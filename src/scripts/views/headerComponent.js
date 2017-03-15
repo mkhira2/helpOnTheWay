@@ -13,7 +13,7 @@ var HeaderComponent = React.createClass({
 	//button and the hash route link of the button.
 	render: function() {
 		return (
-			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
+			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md" id= "navbar">
 				<NavBarComponent navButtons = {{
 					"button1": {"name": "Home", "link": "#home"},
 					"button2": {"name": "Groups", "link": "#allgroups"},

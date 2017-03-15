@@ -8,7 +8,7 @@ import FooterComponent from './footerComponent'
 const AllGroups = React.createClass({
 	render: function (){
 		return (
-			<div className="container">
+			<div className="container-fluid">
 				<HeaderComponent />
 				<div className= "row">
 					<button className="btn btn-primary col-md-3">Create Group</button>

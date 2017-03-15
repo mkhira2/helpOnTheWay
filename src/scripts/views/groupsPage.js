@@ -19,9 +19,10 @@ const GroupsPage = React.createClass({
 	},
 	render: function() {
 	 	return (
-	 		<div  className="container">
+	 		<div  className="container-fluid">
 				<HeaderComponent />
 	 			<Groups groups={this.state.groupCollection} />
+	 			<FooterComponent />
 	 		</div>
 	 	)
  	}
@@ -34,8 +35,8 @@ const Groups = React.createClass({
 
 	 render: function() {
 	 	return (
-	 		<div className='groups' >
-	 			<h2>Groups</h2>
+	 		<div className='groups container my-4' >
+	 			<h2 className="text-center">Groups</h2>
 	 			<div className='list-group col-12'>
 	 				{this.props.groups.map(this._renderGroup)}
 	 			</div>
@@ -55,11 +56,11 @@ const Group = React.createClass({
 	 render: function() {
 		  console.log(this)
 	 	return (
-			 <div>
+			 <div className="my-4">
 				<h3 className="list-group-item">{this.props.group.get('name')}</h3>
 				<h4 className="list-group-item">Description: {this.props.group.get('description')}</h4>
 				<p className="list-group-item  secondary small">Purpose: {this.props.group.get('purpose')}</p>
-				<button className="btn btn-secondary my-1" onClick={(ev) => this._createAction(this.props.group.get('_id'))}>Join the Group</button>
+				<button id="groupJoin" className="btn my-1" onClick={(ev) => this._createAction(this.props.group.get('_id'))}>Join the Group</button>
 			</div>
 	 	)
  	}
