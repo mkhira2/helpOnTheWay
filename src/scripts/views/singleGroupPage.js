@@ -58,10 +58,4 @@ const Message = React.createClass({
  	}
 })
 	
-//user
-//58c75d954233c96620f55bcd
-//group
-//58c744611fe9496192bcc4e0
-
-
 export default SingleGroupPage

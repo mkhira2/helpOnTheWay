@@ -11,9 +11,6 @@ const STORE = _.extend( Backbone.Events, {
         messageCollection: new MessageCollection()
     },
 
-    groupID: '',
-
-
     _broadcastChange: function() {
         console.log('broadcasting')
         this.trigger('updateContent')

@@ -1,0 +1,1 @@
+console.error("ReferenceError: Unknown plugin \"transform-decorators-legacy\" specified in \"/Users/denis/Projects/TIY/Projects/helpOnTheWay/.babelrc\" at 0, attempted to resolve relative to \"/Users/denis/Projects/TIY/Projects/helpOnTheWay\" while parsing file: /Users/denis/Projects/TIY/Projects/helpOnTheWay/src/scripts/actions.js");
