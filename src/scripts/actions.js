@@ -197,7 +197,41 @@ let ACTIONS = {
 
         }))
 
+    },
+    createNewGroup:function(groupData){
+         var promise = $.ajax({
+		    method: 'POST',
+		    type: 'json',
+		    url: `api/groups/`,
+            data: {
+                name: groupData.name,
+                description: groupData.description,
+                purpose:groupData.purpose,
+            }
+         })
+         promise.then((groupInfo) => {
+             location.hash = `group/${groupInfo._id}`
+         })
+    },
+    loginOrLogout: function(){
+        
+        try{
+            console.log(this.getCurrentUserName()? 'logout' : 'login')
+            
+            if(STORE.data.loggedIn === false){
+                return 'login'
+            }
+            else{
+                return 'logout'
+            }
+            
+        }
+        catch (e){
+            return ''
+        } 
     }
+    
+}
 
 }
 

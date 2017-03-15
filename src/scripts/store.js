@@ -12,9 +12,6 @@ const STORE = _.extend( Backbone.Events, {
         loggedIn: false
     },
 
-    groupID: '',
-
-
     _broadcastChange: function() {
         console.log('broadcasting')
         this.trigger('updateContent')
