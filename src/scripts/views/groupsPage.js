@@ -9,7 +9,7 @@ import ACTIONS from '../actions'
 
 const GroupsPage = React.createClass({
 	componentWillMount: function(){
-		ACTIONS.getMessagesByGroup()
+		ACTIONS.getgroupCollection()
 		STORE.on('updateContent', ()=> {
 			this.setState(STORE.data)
 		})
