@@ -14,7 +14,7 @@ var inputObj = {}
 var GroupSignUpView = React.createClass({
 	render: function() {
 		return(
-			<div className='body container'>
+			<div className='body container-fluid'>
 				<HeaderComponent />
 				<GroupSignupForm />
 				<FooterComponent />
@@ -36,7 +36,7 @@ var GroupSignupForm = React.createClass({
 	
 	render: function() {
 		return(
-			<div className="groupSignupBody">
+			<div className="groupSignupBody container my-4">
 				<h2 className="formHeader text-center">
 				Group Signup
 				</h2>
@@ -44,7 +44,7 @@ var GroupSignupForm = React.createClass({
 					<input  name="name" type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
 					<input  name="purpose" type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
 					<input  name="description" type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
-					<button type="submit" value="Submit" form="createGroup" className="btn btn-primary">Submit</button>
+					<button type="submit" value="Submit" form="createGroup" className="btn offset-sm-3 col-sm-6 my-1" id="registerButton">Submit</button>
 				</form>
 			</div>
 		)

@@ -20,7 +20,7 @@ const HomePage = React.createClass({
 	render: function() {
 		console.log(STORE.data.loggedIn)
 		return (
-			<div className="container">
+			<div className="container-fluid">
 				<HeaderComponent />
 				<div className="auth-container row">
 					<SignUpComponent loggedIn = {STORE.data.loggedIn}/>

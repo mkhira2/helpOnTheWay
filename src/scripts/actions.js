@@ -214,10 +214,10 @@ let ACTIONS = {
     loginOrLogout: function(){
         
         try{
-            console.log(this.getCurrentUserName()? 'logout' : 'login')
+            console.log(this.getCurrentUserName()? 'logout' : 'Login')
             
             if(STORE.data.loggedIn === false){
-                return 'login'
+                return 'Login'
             }
             else{
                 return 'logout'

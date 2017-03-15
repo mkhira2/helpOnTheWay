@@ -14,10 +14,13 @@ ALWAYS INCLUDE
 // font-family: 'Exo 2', sans-serif;
 // font-family: 'PT Sans', sans-serif;
 // font-family: 'Raleway', sans-serif;*/
+/* 
 
+*/
 * {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: PT Sans, sans-serif;
 	box-sizing: border-box;
+
 }
 
 img {
@@ -26,47 +29,38 @@ img {
 
 html{
 	font-size:14px;
+	background-color: white;
 }
 
-/*--------------------------------------------------
-BASIC LAYOUT
---------------------------------------------------*/
+/* 
 
-/*-----------HEADER-------------*/
+*/
+.container-fluid {
+	background-color: white
+}
+/* 
 
-
-
-
-
-
-
-
-
-/*-----------NAVBAR-------------*/
-.navBarComponent{
-	background: none;
+*/
+#loginButton {
+	background-color: #375f39;
+	color: #f1faee;
+	font-size: 16px;
+	font-family: 'Raleway', sans-serif;
+}
+#registerButton {
+	background-color: #1d3557;
+	color: #f1faee;
+	font-size: 16px;
+	font-family: 'Raleway', sans-serif;
+}
+#navbar {
+	background-color: #C7E1E2;
 }
 
-.nav-item{
-	color: #F3CF45;
-	padding: 0;
-	height: 10%;
-	background: none;
-	margin-left: .3em;
-	margin-right: .3em;
-	border-radius: .8em;
-    border: 2px solid #F3CF45;
-    width: 100%;
-    text-align: center;
+#groupJoin {
+	background-color: #e63946;
+	font-size: 16px;
+	color:#f1faee;
 
 }
 
-a#navButton{
-	color: #F3CF45;
-	font-family: 'Exo 2', sans-serif;
-	font-size: .8em;
-}
-
-nav.headerComponent{
-	background: #1d3557;
-}

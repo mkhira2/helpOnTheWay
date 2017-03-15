@@ -27,7 +27,7 @@ var NavButtonComponent = React.createClass({
 	render: function(){
 
 		return (
-			<li className = "nav-item mx-2">
+			<li className = "nav-item mx-2" id="jamesButton">
 				<a href = {this.props.buttonsProps.link} className="navButton nav-link" id={this.props.buttonsProps.name}>{this.props.buttonsProps.name}</a>
 			</li>
 		)
