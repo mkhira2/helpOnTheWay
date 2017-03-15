@@ -7,7 +7,9 @@ import LoginComponent from './components/loginComponent.js'
 import STORE from './../store.js'
 
 const HomePage = React.createClass({
+
 	componentWillMount:function(){
+		
 		
 	},
 
@@ -23,6 +25,14 @@ const HomePage = React.createClass({
 				<FooterComponent />
 			</div>
 		)
+	},
+
+	componentDidMount:function(){
+		
+		STORE.on('updateContent', () => {
+			this.setState(STORE.data)
+		})
+		
 	}
 })
 
