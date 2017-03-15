@@ -193,6 +193,7 @@ let ACTIONS = {
 
     },
 
+    //posts a new group to the database and loads the new group's page(almost, haven't made a new group page yet)
     createNewGroup:function(groupData){
          var promise = $.ajax({
 		    method: 'POST',
@@ -209,6 +210,7 @@ let ACTIONS = {
          })
     },
 
+    //changes the navbar 'login' button to say 'login' or 'logout' based on user's status
     loginOrLogout: function(){
         
         try{
