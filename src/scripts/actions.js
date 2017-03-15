@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
-
+STORE.data.loggedIn = false
 let ACTIONS = {
     createNewUser: function(userData){
         let promise = User.register(userData);
@@ -16,17 +16,33 @@ let ACTIONS = {
             }
         )
     },
-     logUserIn:function(email,password){
+    logUserIn:function(email,password){
         console.log(email,password)
          let promise = User.login(email,password)
          promise.then(
              (user) => {
                  location.hash=`allgroups`
                  this.getgroupCollection()
+                 STORE.data.loggedIn = true
              }
          )
-     },
-     addUserToGroup:function(userID,groupID){
+    },
+    logUserOut:function(){
+        
+        try{
+            console.log('logging out')
+            User.logout()
+            STORE.data.loggedIn = false
+        }
+        catch (e){
+            console.log('no user to logout')
+            return('notUser')
+            STORE.data.loggedIn = false
+        }
+        
+        
+    },
+    addUserToGroup:function(userID,groupID){
          return $.ajax({
 		    method: 'PUT',
 		    type: 'json',
@@ -38,7 +54,20 @@ let ACTIONS = {
           
     },
     getCurrentUserName:function(){
-        return User.getCurrentUser().get('userName');   
+        
+        try{
+            if(User.getCurrentUser().get('userName') != undefined ){
+                return User.getCurrentUser().get('userName'); 
+            }
+            else{
+                return('notUser')
+            }
+        }
+        catch (e){
+            console.log('no user')
+            return('notUser')
+        }
+
     },
     getgroupCollection:function(){
          return STORE.data.groupCollection.fetch()
@@ -65,6 +94,24 @@ let ACTIONS = {
         promise.then(STORE.data.messageCollection.fetch({
             data: {"groupID": `${messageData.groupID}`}
         }))
+    },
+    loginOrLogout: function(){
+        
+        try{
+            
+            console.log(this.getCurrentUserName()? 'logout' : 'login')
+            
+            if(STORE.data.loggedIn === false){
+                return 'login'
+            }
+            else{
+                return 'logout'
+            }
+            
+        }
+        catch (e){
+            return ''
+        } 
     }
 }
 

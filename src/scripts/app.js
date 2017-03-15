@@ -8,6 +8,7 @@ import NavBarComponent from './views/components/navBar'
 import SingleGroupPage from './views/singleGroupPage'
 import GroupsPage from './views/groupsPage'
 import ACTIONS from './actions.js'
+import STORE from './store.js'
 
 var app = function() {
 	var HelpRouter = Backbone.Router.extend({
@@ -16,6 +17,7 @@ var app = function() {
 			"registergroup": "showGroupsPage",
 			"group/:groupId": "showSingleGroup",
 			"allgroups": "showAllGroups",
+			"logout": "handleLogout",
 			"*defaultRoute": "showLoginPage" 
 		},
 
@@ -32,6 +34,17 @@ var app = function() {
 		},
 		showAllGroups: function (){
 			ReactDOM.render(<GroupsPage />, document.querySelector('.container'))
+		},
+		handleLogout: function(){
+			
+			if(STORE.data.loggedIn === true){
+				ACTIONS.logUserOut()
+				console.log("user " + ACTIONS.getCurrentUserName() + " has logged out")
+				this.handleRedirect()
+			}
+		},
+		handleRedirect: function(){
+			location.hash = "#home"
 		}
 	})
 	new HelpRouter

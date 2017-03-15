@@ -46,7 +46,7 @@ UserAuthModel.login = function(email, password) {
 	})
 }
 
-UserAuthModel.logout = function() {
+UserAuthModel.logout = function(appname, user) {
 	return $.getJSON('/auth/logout').then(()=>{
 		localStorage.removeItem(app_name + '_user')
 	})

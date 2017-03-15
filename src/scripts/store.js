@@ -8,7 +8,8 @@ const STORE = _.extend( Backbone.Events, {
         groupCollection: new GroupCollection(),
         groupModel: new GroupModel(),
         messageModel: new MessageModel(),
-        messageCollection: new MessageCollection()
+        messageCollection: new MessageCollection(),
+        loggedIn: false
     },
 
     _broadcastChange: function() {
