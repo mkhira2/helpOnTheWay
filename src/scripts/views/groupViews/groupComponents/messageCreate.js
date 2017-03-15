@@ -13,7 +13,6 @@ const MessageTextComponent = React.createClass({
 			body:evt.target.body.value
 		})
 	},
-
 	render: function (){
 		console.log(this)
 		return(
@@ -27,8 +26,8 @@ const MessageTextComponent = React.createClass({
 					<label>Body</label>
 					<textarea type="textarea" className="form-control" name="body" placeholder="Enter Body" ></textarea>
 					<div className= "row">
-					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3 offset-sm-1 my-1">Submit</button>	
-					<button className="btn btn-danger col-sm-3 offset-sm-4 my-1">Flare</button>
+					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3  offset-sm-2 my-1">Submit</button>	
+					<button className="btn btn-danger col-sm-3 offset-sm-2 my-1">Flare</button>
 					</div>
 				</form>
 			</div>
@@ -36,6 +35,7 @@ const MessageTextComponent = React.createClass({
 	}
 
 })
+
 
 var AllMessagesComponent = React.createClass({
 	
