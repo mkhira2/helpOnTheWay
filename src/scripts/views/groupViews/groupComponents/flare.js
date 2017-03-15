@@ -4,8 +4,8 @@ import Backbone from 'backbone'
 const FlareComponent = React.createClass ({
 	render: function (){
 		return(
-		<div>
-			<button className="btn btn-danger">Flare</button>
+		<div className="col-sm-3 offset-sm-3">
+				
 		</div>
 		)
 	}

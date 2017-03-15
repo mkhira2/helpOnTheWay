@@ -56,10 +56,10 @@ const Group = React.createClass({
 		  console.log(this)
 	 	return (
 			 <div>
-				<h3 className="list-group-item">Group Name: {this.props.group.get('name')}</h3>
+				<h3 className="list-group-item">{this.props.group.get('name')}</h3>
 				<h4 className="list-group-item">Description: {this.props.group.get('description')}</h4>
-				<p className="list-group-item">Purpose: {this.props.group.get('purpose')}</p>
-				<button onClick={(ev) => this._createAction(this.props.group.get('_id'))}>Join the Group</button>
+				<p className="list-group-item  secondary small">Purpose: {this.props.group.get('purpose')}</p>
+				<button className="btn btn-secondary my-1" onClick={(ev) => this._createAction(this.props.group.get('_id'))}>Join the Group</button>
 			</div>
 	 	)
  	}
