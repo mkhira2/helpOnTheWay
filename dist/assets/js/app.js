@@ -1,0 +1,1 @@
+console.error("TypeError: /Users/jamesjsewell/Documents/veterans_hackathon/helpOnTheWay/src/scripts/views/singleGroupPage.js: Duplicate declaration \"Messages\" while parsing file: /Users/jamesjsewell/Documents/veterans_hackathon/helpOnTheWay/src/scripts/views/singleGroupPage.js");
