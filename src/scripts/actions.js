@@ -24,13 +24,13 @@ let ACTIONS = {
         let promise = User.register(userData);
         promise.then(
 
-            ()=>{
-                console.log('loggin in')
+            (resp)=>{
+                console.log('loggin in', resp)
                 this.logUserIn(userData.email, userData.password)
             },
 
-            ()=>{
-                console.log('failure!')
+            (err)=>{
+                console.log('failure!', err)
 
             }
 
