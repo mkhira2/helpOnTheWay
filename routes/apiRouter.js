@@ -163,8 +163,6 @@ let Reply = require('../db/replySchema').Reply
         res.json(newMessage)
       })
   })
-  
-
     //---------------------------------------------------------------
     //                    ROUTES FOR REPLIES
     //---------------------------------------------------------------
@@ -193,7 +191,3 @@ let Reply = require('../db/replySchema').Reply
       })
   })
 module.exports = apiRouter
-
-//58c75d954233c96620f55bcd
-
-//58c744611fe9496192bcc4e0

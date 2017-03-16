@@ -23,6 +23,10 @@ const MessageTextComponent = React.createClass({
 			},this.props.groupID)
 			STORE.data.flare = false
 		}
+		window.scrollTo(0,document.body.scrollHeight);
+		evt.target.title.value =''
+		evt.target.description.value=''
+		evt.target.body.value=''
 	},
 	handleFlare:function(evt) {
 		STORE.data.flare = true
