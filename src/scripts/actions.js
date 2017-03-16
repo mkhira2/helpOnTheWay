@@ -83,6 +83,30 @@ let ACTIONS = {
 
     },
 
+    //returns the groups a user is part of
+    returnUserGroups: function(){
+        
+        try{
+
+            if(User.getCurrentUser().get('userName') != undefined ){
+                return User.getCurrentUser().get('groups'); 
+            }
+
+            else{
+                return('notUser')
+            }
+
+        }
+
+        catch (e){
+
+            console.log('no user')
+            return('notUser')
+
+        }
+
+    },
+
     //logs user out by calling the .logout() method on the user model. sets logged in status to false
     logUserOut:function(){
         
@@ -228,7 +252,6 @@ let ACTIONS = {
             return ''
         } 
     }
-
 }
 
 export default ACTIONS

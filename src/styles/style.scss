@@ -43,7 +43,7 @@ BASIC LAYOUT
 
 
 /*-----------NAVBAR-------------*/
-.navBarComponent{
+/*.navBarComponent{
 	background: none;
 }
 
@@ -69,4 +69,27 @@ a#navButton{
 
 nav.headerComponent{
 	background: #1d3557;
+}*/
+
+/*------------ GROUP CHAT MODULE --------------*/
+div#groupChat{ 
+	text-align: center;
+	vertical-align: center;
+	margin:auto;
+	padding:2em;
+	width: 30%;
+	height: 50em;
+	background: none;
+	border: .2em solid #1d3557;
+	overflow: scroll;
+
 }
+.groupChatHeader{
+	text-align: center;
+	padding: 1.5em;
+
+}
+.groupChatBody{
+	padding: 1.5em;
+}
+/*---------------------------------------------*/

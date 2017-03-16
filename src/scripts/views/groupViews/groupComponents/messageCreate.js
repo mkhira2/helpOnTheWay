@@ -4,6 +4,7 @@ import FlareComponent from './flare'
 import ACTIONS from '../../../actions.js'
 
 const MessageTextComponent = React.createClass({
+	
 	_createAction:function(evt){
 		evt.preventDefault()
 		ACTIONS.createNewMessage({
@@ -13,12 +14,13 @@ const MessageTextComponent = React.createClass({
 			body:evt.target.body.value
 		})
 	},
+
 	render: function (){
 		console.log(this)
 		return(
 			<div>
 				<form onSubmit={this._createAction} id="newMessage">
-					<h3>Post New Message:</h3>
+					<h4>Post New Message:</h4>
 					<label>Title</label>
 					<input type="text" className="form-control" name="title" placeholder="Enter Title" />
 					<label>Description</label>
@@ -34,20 +36,6 @@ const MessageTextComponent = React.createClass({
 			)
 	}
 
-})
-
-
-var AllMessagesComponent = React.createClass({
-	
-	render: function(){
-		
-		return(
-
-			<div className="allPosts">
-				{this.props.messagesArray}
-			</div>
-		)
-	}
 })
 
 export default MessageTextComponent
