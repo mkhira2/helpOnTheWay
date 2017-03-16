@@ -9,7 +9,7 @@ import STORE from '../../scripts/store'
 const SingleGroupPage = React.createClass({
 	componentWillMount: function(){
 		ACTIONS.getMessagesByGroup(this.props.groupID)
-		STORE.on('updateContent', ()=> {
+		STORE.on('updateContent', () => {
 			this.setState(STORE.data)
 		})
 	},
@@ -20,7 +20,7 @@ const SingleGroupPage = React.createClass({
 		return(
 			<div>
 				<HeaderComponent />
-				<MessageTextComponent groupID = {this.props.groupID}/>
+				<MessageTextComponent flare={this.state.flare} groupID = {this.props.groupID} />
 				<Messages messages={this.state.messageCollection} />
 				<FooterComponent />
 			</div>
@@ -33,7 +33,6 @@ const Messages = React.createClass({
 	 	return <Message key={messageModel.cid} message={messageModel} />
 	 },
 	 render: function() {
-		 console.log(this)
 	 	return (
 	 		<div className='messages' >
 	 			<h2>Messages</h2>
@@ -47,7 +46,6 @@ const Messages = React.createClass({
 
 const Message = React.createClass({
 	 render: function() {
-		 console.log(this)
 	 	return (
 			 <div>
 				<h3 className="list-group-item">{this.props.message.get('title')}</h3>
