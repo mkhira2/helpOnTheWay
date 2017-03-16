@@ -9,11 +9,11 @@ const STORE = _.extend( Backbone.Events, {
         groupModel: new GroupModel(),
         messageModel: new MessageModel(),
         messageCollection: new MessageCollection(),
-        loggedIn: false
+        loggedIn: false,
+        flare:false
     },
 
     _broadcastChange: function() {
-        console.log('broadcasting')
         this.trigger('updateContent')
     },
 

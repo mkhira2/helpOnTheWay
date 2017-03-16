@@ -214,7 +214,6 @@ let ACTIONS = {
     loginOrLogout: function(){
         
         try{
-            console.log(this.getCurrentUserName()? 'logout' : 'login')
             
             if(STORE.data.loggedIn === false){
                 return 'login'
@@ -227,8 +226,29 @@ let ACTIONS = {
         catch (e){
             return ''
         } 
-    }
+    },
 
+
+    sendEmailToAllMembers:function(messageData,groupID){
+        var promise = $.ajax({
+		    method: 'GET',
+		    type: 'json',
+		    url: `api/groups/${groupID}`,
+        })
+
+        //adds a new group to the store
+        promise.then((group)=>{
+            console.log(ACTIONS.getCurrentUserName())
+            group.members.forEach((member)=>{
+                
+                emailjs.send("helpontheway2017_gmail_com", "helpontheway", {
+                "to":`${member.email}`,
+                "from_name":`${ACTIONS.getCurrentUserName()}`,
+                "to_name":`${member.userName}`,
+                "message_html":`${messageData.body}!!`})
+            })
+        })
+    }
 }
 
 export default ACTIONS

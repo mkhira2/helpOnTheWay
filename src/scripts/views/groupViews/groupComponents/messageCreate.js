@@ -2,6 +2,7 @@ import React from 'react'
 import Backbone from 'backbone'
 import FlareComponent from './flare'
 import ACTIONS from '../../../actions.js'
+import STORE from '../../../store'
 
 const MessageTextComponent = React.createClass({
 	_createAction:function(evt){
@@ -12,9 +13,20 @@ const MessageTextComponent = React.createClass({
 			description:evt.target.description.value,
 			body:evt.target.body.value
 		})
+		if(STORE.data.flare){
+			ACTIONS.sendEmailToAllMembers({
+				groupID:this.props.groupID,
+				title:evt.target.title.value,
+				description:evt.target.description.value,
+				body:evt.target.body.value
+			},this.props.groupID)
+			STORE.data.flare = false
+		}
+	},
+	handleFlare:function(evt) {
+		STORE.data.flare = true
 	},
 	render: function (){
-		console.log(this)
 		return(
 			<div>
 				<form onSubmit={this._createAction} id="newMessage">
@@ -27,7 +39,7 @@ const MessageTextComponent = React.createClass({
 					<textarea type="textarea" className="form-control" name="body" placeholder="Enter Body" ></textarea>
 					<div className= "row">
 					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3  offset-sm-2 my-1">Submit</button>	
-					<button className="btn btn-danger col-sm-3 offset-sm-2 my-1">Flare</button>
+					<button onClick= {this.handleFlare} form="newMessage" name="flare" className="btn btn-danger col-sm-3 offset-sm-2 my-1">Flare</button>
 					</div>
 				</form>
 			</div>
