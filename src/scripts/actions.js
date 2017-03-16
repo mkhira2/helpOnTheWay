@@ -4,8 +4,16 @@ import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
 
-//sets the logged in status to false by defualt for now, will have continuity later
-STORE._set({loggedIn: false})
+setNavBarLoginStatus()
+function setNavBarLoginStatus(){
+
+    if(User.getCurrentUser()){
+
+        STORE._set({loggedIn: true})
+
+    }
+
+}
 
 //custom actions for the app
 let ACTIONS = {
@@ -42,9 +50,11 @@ let ACTIONS = {
 
             (user) => {
 
-                location.hash=`allgroups`
+                
                 this.getgroupCollection()
+                STORE._initialize()
                 STORE._set({loggedIn: true})
+                location.hash=`home`
 
             }
 
@@ -55,7 +65,7 @@ let ACTIONS = {
     //returns the user's id for the user auth model given user data
     getCurrentIDUser: function(userData){
 
-         return User.getCurrentUser().get('_id'); 
+        return User.getCurrentUser().get('_id'); 
 
     },
 
@@ -83,34 +93,34 @@ let ACTIONS = {
 
     },
 
-    //logs user out by calling the .logout() method on the user model. sets logged in status to false
-    logUserOut:function(){
+    //returns the groups a user is part of
+    returnUserGroups: function(){
         
         try{
 
-            console.log('logging out')
-            User.logout()
-            STORE._set({loggedIn: false})
+            if(User.getCurrentUser().get('userName') != undefined ){
+                return User.getCurrentUser().get('groups'); 
+            }
+
+            else{
+                return('notUser')
+            }
 
         }
 
         catch (e){
 
-            STORE._set({loggedIn: false})
-            console.log('no user to logout')
+            console.log('no user')
             return('notUser')
-            
 
-        } 
+        }
 
     },
 
     //sets the navbar 'logout' button to logged in or logged out
-    loginOrLogout: function(){
+    loginOrLogoutNav: function(){
         
         try{
-            
-            console.log(this.getCurrentUserName()? 'logout' : 'login')
             
             if(STORE.data.loggedIn === false){
 
@@ -134,18 +144,63 @@ let ACTIONS = {
 
     },
 
+    //logs user out by calling the .logout() method on the user model. sets logged in status to false
+    logUserOut:function(){
+        
+        try{
+
+            console.log('logging out')
+            User.logout()
+            STORE._set({loggedIn: false})
+
+        }
+
+        catch (e){
+
+            STORE._set({loggedIn: false})
+            User.logout()
+            console.log('no user to logout')
+            return('notUser')
+            
+
+        } 
+
+    },
+
     //adds user to a group, takes the user's id and the groups id
-    addUserToGroup:function(userID,groupID){
+    addUserToGroup:function(userID,groupID,groupColl){
+        var userInGroup = false
+        var usersGroups = this.returnUserGroups(userID)
 
-        //tells the database to put a new user into the group
-        return $.ajax({
+        if(usersGroups != 'notUser'){
 
-            method: 'PUT',
-		    type: 'json',
-		    url: `api/groups/${groupID}/users/${userID}`
+            for(var i = 0; i < usersGroups.length; i++){
+              
+                if(usersGroups[i] === groupID){
+                    userInGroup = true
+                    console.log('user is already in group')
+                }
+            }
 
-        })
+            if(userInGroup === false){
+                
+                return $.ajax({
+                    method: 'PUT',
+                    type: 'json',
+                    url: `api/groups/${groupID}/users/${userID}`},
+                    User.getUsersGroups(), User.getCurrentUser(), 
+                    STORE._set({"groupCollection":groupColl}))
+            
+            }
 
+            else{
+
+                console.log('user already in group')
+                return('inGroup')
+            }
+
+        }
+      
     },
 
     //returns collection of data for current group
@@ -163,6 +218,18 @@ let ACTIONS = {
             data: {"groupID": `${groupID}`}
 
         })
+
+    },
+
+    //returns all of the messages for a given group, takes group id
+    getMostRecentMessageFromGroup: function(groupID){
+
+        var stuff = STORE.data.messageCollection.fetch({
+
+            data: {"groupID": `${groupID}`}
+
+            })
+        return stuff.response()
 
     },
 
@@ -195,6 +262,7 @@ let ACTIONS = {
 
     //posts a new group to the database and loads the new group's page(almost, haven't made a new group page yet)
     createNewGroup:function(groupData){
+
          var promise = $.ajax({
 		    method: 'POST',
 		    type: 'json',
@@ -209,26 +277,28 @@ let ACTIONS = {
              location.hash = `group/${groupInfo._id}`
          })
     },
+    sendEmailToAllMembers:function(messageData,groupID){
 
-    //changes the navbar 'login' button to say 'login' or 'logout' based on user's status
-    loginOrLogout: function(){
-        
-        try{
-            console.log(this.getCurrentUserName()? 'logout' : 'Login')
-            
-            if(STORE.data.loggedIn === false){
-                return 'Login'
-            }
-            else{
-                return 'logout'
-            }
-            
-        }
-        catch (e){
-            return ''
-        } 
+        var promise = $.ajax({
+		    method: 'GET',
+		    type: 'json',
+		    url: `api/groups/${groupID}`,
+        })
+
+        //adds a new group to the store
+        promise.then((group)=>{
+
+            console.log(ACTIONS.getCurrentUserName())
+            group.members.forEach((member)=>{
+                
+                emailjs.send("helpontheway2017_gmail_com", "helpontheway", {
+                "to":`${member.email}`,
+                "from_name":`${ACTIONS.getCurrentUserName()}`,
+                "to_name":`${member.userName}`,
+                "message_html":`${messageData.body}!!`})
+            })
+        })
     }
-
 }
 
 export default ACTIONS

@@ -16,46 +16,169 @@ ALWAYS INCLUDE
 // font-family: 'Raleway', sans-serif;*/
 /* 
 
+/*
+#2b2d42
+
+#8d99ae
+
+#edf2f4
+
+#ef233c
+
+#d90429
 */
-* {
-	font-family: PT Sans, sans-serif;
-	box-sizing: border-box;
+
+/*----------- HEADER -----------------------------*/
+.logo{
+	width:20em;
+	padding: 2em;
+}
+
+/*------------- BODY -----------------------------*/
+.container div{
+	background: #8d99ae;
 
 }
 
-img {
-	max-width: 100%;
+/*------------- NAVBAR ---------------------------*/
+.navBarComponent a{
+	font-family: 'Exo 2', sans-serif;
+	background: none;
 }
 
-html{
-	font-size:14px;
-	background-color: white;
+.navBarComponent a:hover{
+
+	border-bottom: .1em dashed #F3CF45;
 }
 
-/* 
+.headerComponent{
+	font-family: 'Exo 2', sans-serif;
+	background: none;
+}
 
-*/
-.container-fluid {
-	background-color: white
-}
-/* 
+/*------------ JOINED GROUPS MODULE --------------*/
 
-*/
-#loginButton {
-	background-color: #375f39;
-	color: #f1faee;
-	font-size: 16px;
-	font-family: 'Raleway', sans-serif;
+.joinedGroupsContainer{ 
+
+	padding:1.5em;
+	height: 20em;
+	background: none;
+	border: .1em dashed #F3CF45;
+	overflow-y: scroll;
+	margin: auto;	
+	margin-top: 2em;
+	text-align: center;
+
 }
-#registerButton {
-	background-color: #1d3557;
-	color: #f1faee;
-	font-size: 16px;
-	font-family: 'Raleway', sans-serif;
+
+.joinedGroupsContainer p{
+	padding: .2em;
+	margin: auto;
 }
-#navbar {
-	background-color: #C7E1E2;
+
+.joinedGroupsContainer h4{
+	padding: .2em;
+	margin: auto;
+	text-align: left;
 }
+
+#openGroupButton {
+
+	
+}
+
+.singleGroupSnapshot{
+	border-bottom: .1em solid #1d3557;
+	padding-left: .2em;
+	margin: auto;
+	padding-top: 1em;
+	padding-bottom: 1em; 
+}
+
+/*---------------------------------------------*/
+
+/*----------- ABOUT SECTION ON HOMEPAGE -------*/
+
+/*---------- registration and login -----------*/
+
+.loginComponent h3{
+
+	font-family: 'Exo 2', sans-serif;
+
+}
+
+.loginComponent{
+
+	border-left: .1em solid #F3CF45;
+
+}
+
+
+#loginLabel{
+	color: white;
+	font-family: 'Exo 2', sans-serif;
+
+}
+
+#registerLabel{
+	color: white;
+	font-family: 'Exo 2', sans-serif;
+
+}
+
+#loginForm input{
+	border: .1em solid #F3CF45;
+	background: none;
+	color: white;
+	font-family: 'PT Sans', sans-serif;
+
+}
+
+#registerForm input{
+	border: .1em solid #F3CF45;
+	background: none;
+	color: white;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.btn-success{
+	background: none;
+	border: .1em dashed #F3CF45;
+	padding: 0;
+	margin:5em;
+}
+
+.btn-primary{
+	background: none;
+	border: .1em dashed #F3CF45;
+	padding: 0;
+	margin:5em;
+}
+
+.aboutSection{
+	padding: 1.5em;
+	margin: auto;
+}
+
+.auth-container div{
+	background: #2b2d42;
+	color: white;
+}
+
+
+
+/*------------ FOOTER -------------------------*/
+#footerUl{
+	width: 100em;
+	margin: auto;
+	text-align: center;
+	background: none;
+}
+#footerFooter{
+	
+	margin: auto;
+	background: none;
+	text-align: center;
 
 #groupJoin {
 	background-color: #e63946;
