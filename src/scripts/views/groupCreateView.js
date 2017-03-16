@@ -44,7 +44,7 @@ var GroupSignupForm = React.createClass({
 					<input  name="name" type='text' className='groupNameInput form-control mt-1' placeholder='Group Name'/>
 					<input  name="purpose" type='text' className='groupPurposeInput form-control mt-1' placeholder='Group Purpose'/>
 					<input  name="description" type='text' className='groupDescriptionInput form-control mt-1' placeholder='Group Description'/>
-					<button type="submit" value="Submit" form="createGroup" className="btn btn-primary">Submit</button>
+					<button type="submit" value="Submit" form="createGroup" className="btn btn-primary submit">Submit</button>
 				</form>
 			</div>
 		)
