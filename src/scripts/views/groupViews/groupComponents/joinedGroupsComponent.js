@@ -6,7 +6,16 @@ import STORE from "../../../store"
 import ACTIONS from "../../../actions"
 
 var JoinedGroupsComponent = React.createClass({
-	
+	componentDidMount: function(){
+
+		ACTIONS.getgroupCollection()
+
+		STORE.on('updateContent', ()=> {
+
+			this.setState(STORE.data)
+
+		})
+	},
 	getInitialState: function() {
 		ACTIONS.getgroupCollection()
 		this.setState(STORE.data)
@@ -60,7 +69,7 @@ var GroupSnapshots = React.createClass({
 			if(ACTIONS.returnUserGroups().includes(groupId)){
 			
 				var snapshotData = getSnapshotData(currentGroup, groupId)
-	    		console.log(snapshotData)
+	    		
 				groupSnapshotsArray.push(
 
 					<SingleGroupSnapshot 

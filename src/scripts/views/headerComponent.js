@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import NavBarComponent from './components/navBar.js'
 import ACTIONS from './../actions.js'
+import LogoComponent from './components/logoComponent.js'
 
 //header of a page
 var HeaderComponent = React.createClass({
@@ -13,6 +14,10 @@ var HeaderComponent = React.createClass({
 	//button and the hash route link of the button.
 	render: function() {
 		return (
+			<div>
+				
+			<LogoComponent />
+			
 			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
 				<NavBarComponent navButtons = {{
 					"button1": {"name": "Home", "link": "#home"},
@@ -21,6 +26,7 @@ var HeaderComponent = React.createClass({
 					"button4": {"name": ACTIONS.loginOrLogoutNav(), "link": "#"+ACTIONS.loginOrLogoutNav()}
 				}}/>
 			</nav>
+			</div>
 		)
 	}
 })

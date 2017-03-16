@@ -41,7 +41,7 @@ const Groups = React.createClass({
 
 	_renderGroup: function(groupModel) {
 
-	 	return <Group key={groupModel.cid} group={groupModel} />
+	 	return <Group key={groupModel.cid} group={groupModel} groups={this.props.groups} />
 
 	},
 
@@ -63,7 +63,7 @@ const Group = React.createClass({
 	_createAction: function(groupID) {
 
 		let userID = ACTIONS.getCurrentIDUser()
-		var addUser = ACTIONS.addUserToGroup(userID,groupID)
+		var addUser = ACTIONS.addUserToGroup(userID,groupID,this.props.groups)
 		location.hash=`group/${groupID}`
 		
 	},

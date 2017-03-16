@@ -16,11 +16,11 @@ var LoginComponent = React.createClass({
 			return (
 
 			<div className="loginComponent col-sm-5 offset-sm-1 p-4 ml-0">
-				<form onSubmit={this._createAction}>
+				<form id = "loginForm" onSubmit={this._createAction}>
 					<h3>Login:</h3>
-					<label className="text-muted small">Email Address</label>
-					<input placeholder="Email Address" type="text" name="emailLogin" className="form-control py-1" />
-					<label className="text-muted small">Password</label>
+					<label id = "loginLabel">Email Address</label>
+					<input id = "emailInput" placeholder="Email Address" type="text" name="emailLogin" className="form-control py-1" />
+					<label  id = "loginLabel">Password</label>
 					<input type="password" className="form-control py-1" name="password" placeholder="Enter Password" />
 					<button className="btn btn-success mt-1 col-sm-8 offset-sm-2">Login</button>
 				</form>

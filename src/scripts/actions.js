@@ -168,7 +168,7 @@ let ACTIONS = {
     },
 
     //adds user to a group, takes the user's id and the groups id
-    addUserToGroup:function(userID,groupID){
+    addUserToGroup:function(userID,groupID,groupColl){
         var userInGroup = false
         var usersGroups = this.returnUserGroups(userID)
 
@@ -183,13 +183,13 @@ let ACTIONS = {
             }
 
             if(userInGroup === false){
-                console.log('did a bunch of before')
+                
                 return $.ajax({
                     method: 'PUT',
                     type: 'json',
-                    url: `api/groups/${groupID}/users/${userID}`
-                },User.getUsersGroups(),
-                User.getCurrentUser(),User.getUsersGroups())
+                    url: `api/groups/${groupID}/users/${userID}`},
+                    User.getUsersGroups(), User.getCurrentUser(), 
+                    STORE._set({"groupCollection":groupColl}))
             
             }
 
