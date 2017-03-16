@@ -36,7 +36,7 @@ const HomePage = React.createClass({
 		return (
 			<div className="container-fluid">
 				<HeaderComponent />
-				<div className="auth-container row">
+				<div className="auth-container  row">
 					<SignUpComponent loggedIn = {STORE.data.loggedIn}/>
 					<LoginComponent loggedIn = {STORE.data.loggedIn}/> 
 					<div className = "groupChatSection container">
