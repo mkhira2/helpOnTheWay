@@ -11,7 +11,7 @@ var LoginComponent = React.createClass({
 	},
 
 	render: function() {
-		console.log(this.props.loggedIn, "LOGGED IN")
+
 		if(this.props.loggedIn === false || this.props.loggedIn === undefined){
 			return (
 
