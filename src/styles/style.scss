@@ -155,14 +155,12 @@ html{
 
 .btn-success{
 	background: none;
-	border: .1em dashed #F3CF45;
 	padding: 0;
 	margin:5em;
 }
 
 .btn-primary{
 	background: none;
-	border: .1em dashed #F3CF45;
 	padding: 0;
 	margin:5em;
 }
@@ -175,6 +173,10 @@ html{
 .auth-container div{
 	background: #2b2d42;
 	color: white;
+}
+
+.submit {
+	background: steelblue;
 }
 
 

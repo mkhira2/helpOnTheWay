@@ -40,8 +40,8 @@ const MessageTextComponent = React.createClass({
 					<label>Body</label>
 					<textarea type="textarea" className="form-control" name="body" placeholder="Enter Body" ></textarea>
 					<div className= "row">
-					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3  offset-sm-2 my-1">Submit</button>	
-					<button onClick= {this.handleFlare} form="newMessage" name="flare" className="btn btn-danger col-sm-3 offset-sm-2 my-1">Flare</button>
+					<button type="submit" form="newMessage" className="btn btn-primary col-sm-3 submit offset-sm-2 my-1">Submit</button>	
+					<button onClick= {this.handleFlare} form="newMessage" name="flare" className="btn btn-danger col-sm-3 offset-sm-2 my-1">S.O.S.</button>
 					</div>
 				</form>
 			</div>
