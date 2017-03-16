@@ -30,6 +30,7 @@ let ACTIONS = {
             },
 
             (err)=>{
+                alert(`${err.responseText}`)
                 console.log('failure!', err)
 
             }
@@ -41,7 +42,6 @@ let ACTIONS = {
     //logs user in, takes email and password string
     logUserIn:function(email,password){
         
-        console.log(email,password)
         let promise = User.login(email,password)
         
         //gets user out of the database and then sets them into the store
@@ -50,7 +50,6 @@ let ACTIONS = {
 
             (user) => {
 
-                
                 this.getgroupCollection()
                 STORE._initialize()
                 STORE._set({loggedIn: true})
@@ -79,15 +78,14 @@ let ACTIONS = {
             }
 
             else{
-                return('notUser')
+                return('')
             }
 
         }
 
         catch (e){
 
-            console.log('no user')
-            return('notUser')
+            return('')
 
         }
 

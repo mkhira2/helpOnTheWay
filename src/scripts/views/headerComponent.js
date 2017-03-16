@@ -7,7 +7,15 @@ import LogoComponent from './components/logoComponent.js'
 
 //header of a page
 var HeaderComponent = React.createClass({
-	
+	getUserName:function(){
+		if (ACTIONS.loginOrLogoutNav() === 'logout'){
+			return `Logged in as: ${ACTIONS.getCurrentUserName()}`
+		}
+		else
+		{
+			return ''
+		}
+	},
 	//builds a navbar on the fly using predefined buttons passed down into the props of NavBarComponent. the 
 	//'predefined buttons' are set in the navButtons property as an object of buttons
 	//each button in the object is also an object that has a 'key' for the name of the 
@@ -23,6 +31,7 @@ var HeaderComponent = React.createClass({
 					"button3": {"name": "Create Group", "link": "#registergroup"},
 					"button4": {"name": ACTIONS.loginOrLogoutNav(), "link": "#"+ACTIONS.loginOrLogoutNav()}
 				}}/>
+				<div>{this.getUserName()}</div>
 			</nav>
 			</div>
 		)
