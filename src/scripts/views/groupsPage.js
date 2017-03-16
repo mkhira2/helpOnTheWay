@@ -29,9 +29,10 @@ const GroupsPage = React.createClass({
 	render: function() {
 
 	 	return (
-	 		<div  className="container">
+	 		<div  className="container-fluid">
 				<HeaderComponent />
 	 			<Groups groups={this.state.groupCollection} />
+	 			<FooterComponent />
 	 		</div>
 	 	)
  	}
@@ -48,8 +49,8 @@ const Groups = React.createClass({
 	render: function() {
 
 	 	return (
-	 		<div className='groups' >
-	 			<h2>Groups</h2>
+	 		<div className='groups container my-4' >
+	 			<h2 className="text-center">Groups</h2>
 	 			<div className='list-group col-12'>
 	 				{this.props.groups.map(this._renderGroup)}
 	 			</div>
@@ -70,23 +71,20 @@ const Group = React.createClass({
 
 	render: function() {
 
-		var joinOrOpen = 'join group'
+		var joinOrOpen = 'Join Group'
 
 		if(ACTIONS.returnUserGroups().includes(this.props.group.get('_id'))){
 
-			joinOrOpen = 'open group'
+			joinOrOpen = 'Open Group'
 
 		}
 
 	 	return (
-
 			<div>
-
-				<h3 className="list-group-item">{this.props.group.get('name')}</h3>
-				<h4 className="list-group-item">Description: {this.props.group.get('description')}</h4>
-				<p className="list-group-item  secondary small">Purpose: {this.props.group.get('purpose')}</p>
-				<button className="btn btn-secondary my-1" onClick={(ev) => this._createAction(this.props.group.get('_id'))}>{joinOrOpen}</button>
-
+				<h3 className="list-group-item bg-faded">{this.props.group.get('name')}</h3>
+				<h4 className="list-group-item bg-faded">Description: {this.props.group.get('description')}</h4>
+				<p className="list-group-item  secondary small bg-faded">Purpose: {this.props.group.get('purpose')}</p>
+				<button className="btn btn-primary my-1 col-sm-3" onClick={(ev) => this._createAction(this.props.group.get('_id'))}>{joinOrOpen}</button>
 			</div>
 
 	 	)

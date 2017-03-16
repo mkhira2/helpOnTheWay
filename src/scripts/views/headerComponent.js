@@ -15,14 +15,12 @@ var HeaderComponent = React.createClass({
 	render: function() {
 		return (
 			<div>
-				
 			<LogoComponent />
-			
 			<nav className="headerComponent navbar navbar-light bg-faded navbar-toggleable-md">
 				<NavBarComponent navButtons = {{
 					"button1": {"name": "Home", "link": "#home"},
 					"button2": {"name": "Groups", "link": "#allgroups"},
-					"button3": {"name": "CreateGroup", "link": "#registergroup"},
+					"button3": {"name": "Create Group", "link": "#registergroup"},
 					"button4": {"name": ACTIONS.loginOrLogoutNav(), "link": "#"+ACTIONS.loginOrLogoutNav()}
 				}}/>
 			</nav>

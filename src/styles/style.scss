@@ -14,6 +14,7 @@ ALWAYS INCLUDE
 // font-family: 'Exo 2', sans-serif;
 // font-family: 'PT Sans', sans-serif;
 // font-family: 'Raleway', sans-serif;*/
+/* 
 
 /*
 #2b2d42
@@ -26,19 +27,6 @@ ALWAYS INCLUDE
 
 #d90429
 */
-
-* {
-	font-family: Helvetica, Arial, sans-serif;
-	box-sizing: border-box;
-}
-
-img {
-	max-width: 100%;
-}
-
-html{
-	font-size:14px;
-}
 
 /*----------- HEADER -----------------------------*/
 .logo{
@@ -94,11 +82,6 @@ html{
 	text-align: left;
 }
 
-#openGroupButton {
-
-	
-}
-
 .singleGroupSnapshot{
 	border-bottom: .1em solid #1d3557;
 	padding-left: .2em;
@@ -145,6 +128,13 @@ html{
 	font-family: 'PT Sans', sans-serif;
 
 }
+#registerH3 {
+	font-family: 'Exo 2', sans-serif;
+}
+#loginH3 {
+	font-family: 'Exo 2', sans-serif;
+}
+
 
 #registerForm input{
 	border: .1em solid #F3CF45;
@@ -154,15 +144,12 @@ html{
 }
 
 .btn-success{
-	background: none;
-	padding: 0;
-	margin:5em;
+	background: bluesteel;
 }
 
 .btn-primary{
-	background: none;
-	padding: 0;
-	margin:5em;
+	background: bluesteel;
+
 }
 
 .aboutSection{
@@ -175,10 +162,6 @@ html{
 	color: white;
 }
 
-.submit {
-	background: steelblue;
-}
-
 
 /*------------ FOOTER -------------------------*/
 #footerUl{
@@ -188,9 +171,14 @@ html{
 	background: none;
 }
 #footerFooter{
-	
 	margin: auto;
 	background: none;
 	text-align: center;
-
 }
+
+#groupJoin {
+	background-color: #e63946;
+	font-size: 16px;
+	color:#f1faee;
+}
+

@@ -277,7 +277,6 @@ let ACTIONS = {
              location.hash = `group/${groupInfo._id}`
          })
     },
-
     sendEmailToAllMembers:function(messageData,groupID){
 
         var promise = $.ajax({

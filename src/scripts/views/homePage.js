@@ -34,9 +34,9 @@ const HomePage = React.createClass({
 	render: function() {
 		
 		return (
-			<div className="container">
+			<div className="container-fluid">
 				<HeaderComponent />
-				<div className="auth-container row">
+				<div className="auth-container  row">
 					<SignUpComponent loggedIn = {STORE.data.loggedIn}/>
 					<LoginComponent loggedIn = {STORE.data.loggedIn}/> 
 					<div className = "groupChatSection container">
@@ -56,14 +56,6 @@ const HomePage = React.createClass({
 		
 	}
 
-	// componentDidMount:function(){
-		
-	// 	//listens for a change on the store, sets this component to re-render with new info
-	// 	STORE.on('updateContent', () => {
-	// 		this.setState(STORE.data)
-	// 	})
-		
-	// }
 })
 
 export default HomePage

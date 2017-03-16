@@ -19,7 +19,7 @@ var SignUpComponent = React.createClass({
 			return(
 				<div className = "SignUpComponent col-sm-5 offset-sm-1 p-4">
 					<form id = "registerForm" onSubmit={this._createAction}>
-						<h3>Register:</h3>
+						<h3 id="registerH3">Register:</h3>
 						<label id="registerLabel">Email Address</label>
 						<input type="text" className="form-control py-1" name="email" placeholder="Enter Email Address" />
 						<label id="registerLabel">User Name</label>
