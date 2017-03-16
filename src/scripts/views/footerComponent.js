@@ -20,7 +20,7 @@ var FooterComponent = React.createClass({
 						<a href="#contact" className="nav-link">Contact</a>
 					</li>
 					<li className = "nav-item mx-2">
-						<a href="http://justiceforvets.org/what-is-a-veterans-treatment-court" className="nav-link">Education</a>
+						<a href="http://justiceforvets.org/what-is-a-veterans-treatment-court" className="nav-link" target="_blank">Education</a>
 					</li>
 				</ul>
 
