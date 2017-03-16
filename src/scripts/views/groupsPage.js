@@ -49,8 +49,15 @@ const Group = React.createClass({
 		console.log(groupID);
 		let userID = ACTIONS.getCurrentIDUser()
 		console.log(userID)
-		ACTIONS.addUserToGroup(userID,groupID)
-		location.hash=`group/${groupID}`
+		var addUser = ACTIONS.addUserToGroup(userID,groupID)
+		
+		if(addUser != 'inGroup'){
+			location.hash=`group/${groupID}`
+		}
+		else{
+			alert('you are already a member of this group')
+		}
+		
 	},
 	 render: function() {
 		  console.log(this)

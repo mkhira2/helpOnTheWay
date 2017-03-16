@@ -5,7 +5,7 @@ import HeaderComponent from './headerComponent.js'
 import FooterComponent from './footerComponent.js'
 import ACTIONS from '../actions.js'
 import STORE from '../../scripts/store'
-import Messages from './groupViews/groupComponents/messagesComponent.js'
+//import Messages from './groupViews/groupComponents/messagesComponent.js'
 //import SingleMessage from './groupViews/groupComponents/messagesComponent.js'
 
 const SingleGroupPage = React.createClass({

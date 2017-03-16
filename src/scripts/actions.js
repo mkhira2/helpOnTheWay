@@ -107,28 +107,6 @@ let ACTIONS = {
 
     },
 
-    //logs user out by calling the .logout() method on the user model. sets logged in status to false
-    logUserOut:function(){
-        
-        try{
-
-            console.log('logging out')
-            User.logout()
-            STORE._set({loggedIn: false})
-
-        }
-
-        catch (e){
-
-            STORE._set({loggedIn: false})
-            console.log('no user to logout')
-            return('notUser')
-            
-
-        } 
-
-    },
-
     //sets the navbar 'logout' button to logged in or logged out
     loginOrLogout: function(){
         
@@ -158,18 +136,60 @@ let ACTIONS = {
 
     },
 
+    //logs user out by calling the .logout() method on the user model. sets logged in status to false
+    logUserOut:function(){
+        
+        try{
+
+            console.log('logging out')
+            User.logout()
+            STORE._set({loggedIn: false})
+
+        }
+
+        catch (e){
+
+            STORE._set({loggedIn: false})
+            console.log('no user to logout')
+            return('notUser')
+            
+
+        } 
+
+    },
+
     //adds user to a group, takes the user's id and the groups id
     addUserToGroup:function(userID,groupID){
+        var userInGroup = false
+        var usersGroups = this.returnUserGroups(userID)
 
-        //tells the database to put a new user into the group
-        return $.ajax({
+        if(usersGroups != 'notUser'){
 
-            method: 'PUT',
-		    type: 'json',
-		    url: `api/groups/${groupID}/users/${userID}`
+            for(var i = 0; i < usersGroups.length; i++){
+                console.log(usersGroups[i], groupID)
+                if(usersGroups[i] === groupID){
+                    userInGroup = true
+                    console.log('user is already in group')
+                }
+            }
 
-        })
+            if(userInGroup === false){
 
+                return $.ajax({
+                    method: 'PUT',
+                    type: 'json',
+                    url: `api/groups/${groupID}/users/${userID}`
+                })
+            }
+
+            else{
+
+                console.log('user already in group')
+                return('inGroup')
+            }
+
+        }
+      
     },
 
     //returns collection of data for current group
@@ -219,6 +239,7 @@ let ACTIONS = {
 
     //posts a new group to the database and loads the new group's page(almost, haven't made a new group page yet)
     createNewGroup:function(groupData){
+
          var promise = $.ajax({
 		    method: 'POST',
 		    type: 'json',
@@ -234,26 +255,8 @@ let ACTIONS = {
          })
     },
 
-    //changes the navbar 'login' button to say 'login' or 'logout' based on user's status
-    loginOrLogout: function(){
-        
-        try{
-            
-            if(STORE.data.loggedIn === false){
-                return 'login'
-            }
-            else{
-                return 'logout'
-            }
-            
-        }
-        catch (e){
-            return ''
-        } 
-    },
-
-
     sendEmailToAllMembers:function(messageData,groupID){
+
         var promise = $.ajax({
 		    method: 'GET',
 		    type: 'json',
@@ -262,6 +265,7 @@ let ACTIONS = {
 
         //adds a new group to the store
         promise.then((group)=>{
+
             console.log(ACTIONS.getCurrentUserName())
             group.members.forEach((member)=>{
                 
