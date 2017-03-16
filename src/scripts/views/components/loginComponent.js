@@ -17,7 +17,7 @@ var LoginComponent = React.createClass({
 
 			<div className="loginComponent col-sm-5 offset-sm-1 p-4 ml-0">
 				<form id = "loginForm" onSubmit={this._createAction}>
-					<h3>Login:</h3>
+					<h3 id="loginH3">Login:</h3>
 					<label id = "loginLabel">Email Address</label>
 					<input id = "emailInput" placeholder="Email Address" type="text" name="emailLogin" className="form-control py-1" />
 					<label  id = "loginLabel">Password</label>
