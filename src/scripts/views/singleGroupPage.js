@@ -10,59 +10,55 @@ import Messages from './groupViews/groupComponents/messagesComponent.js'
 
 const SingleGroupPage = React.createClass({
 	componentWillMount: function(){
-		
+
+		ACTIONS.getMessagesByGroup(this.props.groupID)
+		STORE.on('updateContent', () => {
+			this.setState(STORE.data)
+		})
+
 	},
 	getInitialState: function() {
 		return STORE.data
 	},
 	render: function (){
 
-			return(
-				<div>
-					<HeaderComponent />
-					<MessageTextComponent groupID = {this.props.groupID}/>
-					<Messages messages={this.state.messageCollection} />
-					<FooterComponent />
-				</div>
-				)
-		
-	},
-	componentDidMount: function(){
-		ACTIONS.getMessagesByGroup(this.props.groupID)
-		STORE.on('updateContent', ()=> {
-			this.setState(STORE.data)
-		})
+		return(
+			<div>
+				<HeaderComponent />
+				<MessageTextComponent flare={this.state.flare} groupID = {this.props.groupID} />
+				<Messages messages={this.state.messageCollection} />
+				<FooterComponent />
+			</div>
+			)
 	}
 })
 
-// const Messages = React.createClass({
-// 	 _renderMessage: function(messageModel) {
-// 	 	return <Message key={messageModel.cid} message={messageModel} />
-// 	 },
-// 	 render: function() {
-// 		 console.log(this)
-// 	 	return (
-// 	 		<div className='messages' >
-// 	 			<h2>Messages</h2>
-// 	 			<div className='list-group col-12'>
-// 	 				{this.props.messages.map(this._renderMessage)}
-// 	 			</div>
-// 	 		</div>
-// 	 	)
-//  	}
-// })
+const Messages = React.createClass({
+	 _renderMessage: function(messageModel) {
+	 	return <Message key={messageModel.cid} message={messageModel} />
+	 },
+	 render: function() {
+	 	return (
+	 		<div className='messages' >
+	 			<h2>Messages</h2>
+	 			<div className='list-group col-12'>
+	 				{this.props.messages.map(this._renderMessage)}
+	 			</div>
+	 		</div>
+	 	)
+ 	}
+})
 
-// const Message = React.createClass({
-// 	 render: function() {
-// 		 console.log(this)
-// 	 	return (
-// 			 <div>
-// 				<h3 className="list-group-item">{this.props.message.get('title')}</h3>
-// 				<p className="list-group-item lead">{this.props.message.get('body')}</p>
-// 				<p className="list-group-item small">Posted By: {this.props.message.get('posterName')}</p>
-// 			</div>
-// 	 	)
-//  	}
-// })
+const Message = React.createClass({
+	 render: function() {
+	 	return (
+			 <div>
+				<h3 className="list-group-item">{this.props.message.get('title')}</h3>
+				<p className="list-group-item lead">{this.props.message.get('body')}</p>
+				<p className="list-group-item small">Posted By: {this.props.message.get('posterName')}</p>
+			</div>
+	 	)
+ 	}
+})
 	
 export default SingleGroupPage

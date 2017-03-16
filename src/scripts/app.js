@@ -1,4 +1,4 @@
-import React from 'react'
+simport React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'

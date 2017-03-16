@@ -5,11 +5,9 @@ let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Group = require('../db/groupSchema.js').Group
 let Message = require('../db/messageSchema').Message
-
   
   apiRouter
     .get('/users', function(req, res){  
-      console.log(req)
       User.find(req.query , "-password", function(err, results){
         if(err) return res.json(err) 
         res.json(results)
@@ -48,7 +46,6 @@ let Message = require('../db/messageSchema').Message
     //---------------------------------------------------------------
  apiRouter
     .get('/groups', function(req, res){
-      console.log(req)
       Group.find(req.query , function(err, results){
         if(err) return res.json(err) 
         res.json(results)
@@ -102,7 +99,46 @@ let Message = require('../db/messageSchema').Message
       })
     })
 
-  apiRouter
+  // apiRouter
+  // .post('/groups/:_id/flare', function(req, res){
+  //   let newMessage = new Message(req.body)
+  //   newMessage.save(function(err, messagerecord){
+  //     if(err) return res.status(500).send('server/db error on attempt to save message to db')
+  //     })
+
+  //   Group.findById({name: req.params._id}, function(err, group){
+  //     console.log('finding group')
+  //     if (err) return res.json(err) 
+  //           // create reusable transporter object using the default SMTP transport
+  //     let transporter = nodemailer.createTransport({
+  //         service: 'gmail',
+  //         auth: {
+  //             user: 'helpontheway2017@gmail.com',
+  //             pass: 'helpontheway'
+  //         }
+  //     });
+
+  //     // setup email data with unicode symbols
+  //     let mailOptions = {
+  //         from: 'helpontheway2017@gmail.com', // sender address
+  //         to: 'denis.bozzato@gmail.com', // list of receivers
+  //         subject: 'cazzo', // Subject line
+  //         text: 'cazzo', // plain text body
+  //     };
+
+  //     // send mail with defined transport object
+  //     transporter.sendMail(mailOptions, (error, info) => {
+  //       console.log('cazzo')
+  //         if (error) {
+  //             return console.log(error);
+  //         }
+  //         console.log('Message %s sent: %s', info.messageId, info.response);
+  //     });
+  //     return res.json(newMessage) 
+  //   })
+  // })
+
+   apiRouter
   .post('/groups', function(req, res){
 
     let newGroup = new Group(req.body)
@@ -138,7 +174,6 @@ let Message = require('../db/messageSchema').Message
       Message.find(req.query, function(err, results) {
         if(err) return res.json(err) 
         res.json(results)
-        console.log(results)
       })
     })
 
@@ -153,7 +188,6 @@ let Message = require('../db/messageSchema').Message
   apiRouter
   .post('/messages', function(req, res){
     let newMessage = new Message(req.body)
-    console.log(newMessage);
     newMessage.save(function(err, record){
         if(err) return res.status(500).send('server/db error on attempt to save message to db')
         res.json(newMessage)
