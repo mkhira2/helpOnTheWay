@@ -172,7 +172,7 @@ let ACTIONS = {
         if(usersGroups != 'notUser'){
 
             for(var i = 0; i < usersGroups.length; i++){
-                console.log(usersGroups[i], groupID)
+              
                 if(usersGroups[i] === groupID){
                     userInGroup = true
                     console.log('user is already in group')
