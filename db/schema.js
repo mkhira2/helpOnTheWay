@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-var Group = require('./groupSchema')
 
 // ----------------------
 // USERS

@@ -5,6 +5,7 @@ let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Group = require('../db/groupSchema.js').Group
 let Message = require('../db/messageSchema').Message
+let Reply = require('../db/replySchema').Reply
   
   apiRouter
     .get('/users', function(req, res){  
@@ -107,45 +108,6 @@ let Message = require('../db/messageSchema').Message
       })
     })
 
-  // apiRouter
-  // .post('/groups/:_id/flare', function(req, res){
-  //   let newMessage = new Message(req.body)
-  //   newMessage.save(function(err, messagerecord){
-  //     if(err) return res.status(500).send('server/db error on attempt to save message to db')
-  //     })
-
-  //   Group.findById({name: req.params._id}, function(err, group){
-  //     console.log('finding group')
-  //     if (err) return res.json(err) 
-  //           // create reusable transporter object using the default SMTP transport
-  //     let transporter = nodemailer.createTransport({
-  //         service: 'gmail',
-  //         auth: {
-  //             user: 'helpontheway2017@gmail.com',
-  //             pass: 'helpontheway'
-  //         }
-  //     });
-
-  //     // setup email data with unicode symbols
-  //     let mailOptions = {
-  //         from: 'helpontheway2017@gmail.com', // sender address
-  //         to: 'denis.bozzato@gmail.com', // list of receivers
-  //         subject: 'cazzo', // Subject line
-  //         text: 'cazzo', // plain text body
-  //     };
-
-  //     // send mail with defined transport object
-  //     transporter.sendMail(mailOptions, (error, info) => {
-  //       console.log('cazzo')
-  //         if (error) {
-  //             return console.log(error);
-  //         }
-  //         console.log('Message %s sent: %s', info.messageId, info.response);
-  //     });
-  //     return res.json(newMessage) 
-  //   })
-  // })
-
    apiRouter
   .post('/groups', function(req, res){
 
@@ -202,6 +164,34 @@ let Message = require('../db/messageSchema').Message
       })
   })
   
+
+    //---------------------------------------------------------------
+    //                    ROUTES FOR REPLIES
+    //---------------------------------------------------------------
+ apiRouter
+    .get('/replies', function(req, res){
+      Reply.find(req.query, function(err, results) {
+        if(err) return res.json(err) 
+        res.json(results)
+      })
+    })
+
+  apiRouter
+    .get('/replies/:_id', function(req, res){
+      Reply.findById(req.params._id, function(err, record){
+        if(err || !record ) return res.json(err) 
+        res.json(record)
+      })
+    })
+  
+  apiRouter
+  .post('/replies', function(req, res){
+    let newReply = new Reply(req.body)
+    newReply.save(function(err, record){
+        if(err) return res.status(500).send('server/db error on attempt to save reply to db')
+        res.json(newReply)
+      })
+  })
 module.exports = apiRouter
 
 //58c75d954233c96620f55bcd
