@@ -50,9 +50,11 @@ let ACTIONS = {
 
             (user) => {
 
-                location.hash=`allgroups`
+                
                 this.getgroupCollection()
+                STORE._initialize()
                 STORE._set({loggedIn: true})
+                location.hash=`home`
 
             }
 
@@ -156,6 +158,7 @@ let ACTIONS = {
         catch (e){
 
             STORE._set({loggedIn: false})
+            User.logout()
             console.log('no user to logout')
             return('notUser')
             
@@ -180,12 +183,14 @@ let ACTIONS = {
             }
 
             if(userInGroup === false){
-
+                console.log('did a bunch of before')
                 return $.ajax({
                     method: 'PUT',
                     type: 'json',
                     url: `api/groups/${groupID}/users/${userID}`
-                })
+                },User.getUsersGroups(),
+                User.getCurrentUser(),User.getUsersGroups())
+            
             }
 
             else{

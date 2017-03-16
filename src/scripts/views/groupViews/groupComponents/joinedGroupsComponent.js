@@ -5,11 +5,11 @@ import MessagesComponent from './messagesComponent.js'
 import STORE from "../../../store"
 import ACTIONS from "../../../actions"
 
-var GroupChatComponent = React.createClass({
-
+var JoinedGroupsComponent = React.createClass({
+	
 	getInitialState: function() {
-		this.setState(STORE.data)
 		ACTIONS.getgroupCollection()
+		this.setState(STORE.data)
 		return STORE.data
 
 	},
@@ -19,11 +19,11 @@ var GroupChatComponent = React.createClass({
 
 			return(
 
-				<div className = "groupChatContainer" id="groupChat">
+				<div className = "joinedGroupsContainer container-fluid" id="joinedGroupsContainer">
 
 					<GroupSnapshots 
 
-						groups={STORE.data.groupCollection.models} 
+						groups={this.state.groupCollection.models} 
 
 					/>
 
@@ -50,27 +50,34 @@ var GroupSnapshots = React.createClass({
 
 		var allGroups = this.props.groups
 
-		var groupSnapshotsArray = []
+		var groupSnapshotsArray = [<DefaultSnapshot />]
 
 		for(var i = 0; i < allGroups.length; i++){
 
 			var currentGroup = allGroups[i]
 			var groupId = currentGroup.get('_id')
+
+			if(ACTIONS.returnUserGroups().includes(groupId)){
 			
-			var snapshotData = getSnapshotData(currentGroup, groupId)
-    		console.log(snapshotData)
-			groupSnapshotsArray.push(
+				var snapshotData = getSnapshotData(currentGroup, groupId)
+	    		console.log(snapshotData)
+				groupSnapshotsArray.push(
 
-				<SingleGroupSnapshot 
+					<SingleGroupSnapshot 
 
-				msgTitle = {snapshotData.messageTitle}
-				msgBody = {snapshotData.messageBody}
-				groupName = {snapshotData.groupName}
-				description = {snapshotData.groupDescription}
-				purpose = {snapshotData.groupPurpose}
-				groupId = {snapshotData.groupId}
+					msgTitle = {snapshotData.messageTitle}
+					msgBody = {snapshotData.messageBody}
+					groupName = {snapshotData.groupName}
+					description = {snapshotData.groupDescription}
+					purpose = {snapshotData.groupPurpose}
+					groupId = {snapshotData.groupId}
 
-				/>)
+					/>)
+			}
+			else{
+				console.log('not in this group', ACTIONS.returnUserGroups())
+
+			}
 
 		}
 
@@ -119,20 +126,20 @@ var SingleGroupSnapshot = React.createClass({
 					purpose: {this.props.purpose}
 				</p>
 
-
-				<p>
-					Most Recent Message: 
-					{this.props.title}
-					{this.props.msgTitle}
-					{this.props.msgBody}
-				</p>
-
-				<button className="btn btn-secondary my-1" onClick={(ev) => this._createAction(this.props.groupId)}>open group</button>
+				<button className="btn btn-secondary my-1" id="openGroupButton" onClick={(ev) => this._createAction(this.props.groupId)}>open group</button>
 
 			</div>
 		)
 	}
 
+})
+
+var DefaultSnapshot = React.createClass({
+	render: function(){
+		return(
+			<h4>Visit the groups page to join a group</h4>
+		)
+	}
 })
 
 function getSnapshotData(currentGroup, id){
@@ -156,4 +163,4 @@ function getSnapshotData(currentGroup, id){
 	)
 }
 
-export default GroupChatComponent
+export default JoinedGroupsComponent

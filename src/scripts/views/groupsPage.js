@@ -64,7 +64,6 @@ const Group = React.createClass({
 
 		let userID = ACTIONS.getCurrentIDUser()
 		var addUser = ACTIONS.addUserToGroup(userID,groupID)
-		
 		location.hash=`group/${groupID}`
 		
 	},
@@ -72,11 +71,8 @@ const Group = React.createClass({
 	render: function() {
 
 		var joinOrOpen = 'join group'
-		let userID = ACTIONS.getCurrentIDUser()
-		var addUser = ACTIONS.addUserToGroup(userID,this.props.group.get('_id'))
 
-		
-		if(addUser === 'inGroup'){
+		if(ACTIONS.returnUserGroups().includes(this.props.group.get('_id'))){
 
 			joinOrOpen = 'open group'
 
