@@ -102,7 +102,7 @@ var GroupSnapshots = React.createClass({
 
 		return(
 
-			<div className = "groupSnapshots"><h3>your support network</h3>{this._makeSnapShots()}</div>
+			<div className = "groupSnapshots"><h3>Your Support Network</h3>{this._makeSnapShots()}</div>
 
 		)
 
@@ -135,7 +135,7 @@ var SingleGroupSnapshot = React.createClass({
 					purpose: {this.props.purpose}
 				</p>
 
-				<button className="btn btn-secondary my-1" id="openGroupButton" onClick={(ev) => this._createAction(this.props.groupId)}>open group</button>
+				<button className="btn btn-secondary my-1" id="openGroupButton" onClick={(ev) => this._createAction(this.props.groupId)}>Open Group</button>
 
 			</div>
 		)
@@ -146,7 +146,7 @@ var SingleGroupSnapshot = React.createClass({
 var DefaultSnapshot = React.createClass({
 	render: function(){
 		return(
-			<h4>Visit the groups page to join a group</h4>
+			<h4>Visit the Groups Page to Join a Group</h4>
 		)
 	}
 })
