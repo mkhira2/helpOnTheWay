@@ -124,13 +124,13 @@ let ACTIONS = {
             
             if(STORE.data.loggedIn === false){
 
-                return 'login'
+                return 'Login'
 
             }
 
             else{
 
-                return 'logout'
+                return 'Logout'
 
             }
             
