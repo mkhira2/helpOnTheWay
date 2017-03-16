@@ -216,6 +216,18 @@ let ACTIONS = {
 
     },
 
+    //returns all of the messages for a given group, takes group id
+    getMostRecentMessageFromGroup: function(groupID){
+
+        var stuff = STORE.data.messageCollection.fetch({
+
+            data: {"groupID": `${groupID}`}
+
+            })
+        return stuff.response()
+
+    },
+
     //posts a message to the server given message data
     createNewMessage:function(messageData){
 
