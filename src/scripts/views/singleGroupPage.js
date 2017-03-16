@@ -5,18 +5,23 @@ import HeaderComponent from './headerComponent.js'
 import FooterComponent from './footerComponent.js'
 import ACTIONS from '../actions.js'
 import STORE from '../../scripts/store'
+//import Messages from './groupViews/groupComponents/messagesComponent.js'
+//import SingleMessage from './groupViews/groupComponents/messagesComponent.js'
 
 const SingleGroupPage = React.createClass({
 	componentWillMount: function(){
+
 		ACTIONS.getMessagesByGroup(this.props.groupID)
 		STORE.on('updateContent', () => {
 			this.setState(STORE.data)
 		})
+
 	},
 	getInitialState: function() {
 		return STORE.data
 	},
 	render: function (){
+
 		return(
 			<div>
 				<HeaderComponent />

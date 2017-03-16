@@ -5,6 +5,7 @@ import ACTIONS from '../../../actions.js'
 import STORE from '../../../store'
 
 const MessageTextComponent = React.createClass({
+	
 	_createAction:function(evt){
 		evt.preventDefault()
 		ACTIONS.createNewMessage({
@@ -26,11 +27,12 @@ const MessageTextComponent = React.createClass({
 	handleFlare:function(evt) {
 		STORE.data.flare = true
 	},
+
 	render: function (){
 		return(
 			<div>
 				<form onSubmit={this._createAction} id="newMessage">
-					<h3>Post New Message:</h3>
+					<h4>Post New Message:</h4>
 					<label>Title</label>
 					<input type="text" className="form-control" name="title" placeholder="Enter Title" />
 					<label>Description</label>
@@ -46,20 +48,6 @@ const MessageTextComponent = React.createClass({
 			)
 	}
 
-})
-
-
-var AllMessagesComponent = React.createClass({
-	
-	render: function(){
-		
-		return(
-
-			<div className="allPosts">
-				{this.props.messagesArray}
-			</div>
-		)
-	}
 })
 
 export default MessageTextComponent
