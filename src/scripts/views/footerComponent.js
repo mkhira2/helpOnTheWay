@@ -19,6 +19,9 @@ var FooterComponent = React.createClass({
 					<li className = "nav-item mx-2">
 						<a href="#contact" className="nav-link">Contact</a>
 					</li>
+					<li className = "nav-item mx-2">
+						<a href="http://justiceforvets.org/what-is-a-veterans-treatment-court" className="nav-link" target="_blank">Education</a>
+					</li>
 				</ul>
 
 			</footer>
