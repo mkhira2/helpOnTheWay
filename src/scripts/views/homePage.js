@@ -12,7 +12,7 @@ import ACTIONS from './../actions.js'
 //renders homepage view
 const HomePage = React.createClass({
 
-	componentDidMount: function(){
+	componentWillMount: function(){
 
 		ACTIONS.getgroupCollection()
 
@@ -24,8 +24,8 @@ const HomePage = React.createClass({
 	},
 
 	getInitialState: function() {
-		ACTIONS.getgroupCollection()
-		this.setState(STORE.data)
+		// ACTIONS.getgroupCollection()
+		// this.setState(STORE.data)
 		return STORE.data
 
 	},

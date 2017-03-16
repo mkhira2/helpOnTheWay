@@ -11,7 +11,7 @@ let Message = require('../db/messageSchema').Message
       User.find(req.query , "-password", function(err, results){
         if(err) return res.json(err) 
         res.json(results)
-      }).populate('group')
+      }).populate('groups')
     })
 
   apiRouter
@@ -19,7 +19,15 @@ let Message = require('../db/messageSchema').Message
       User.findById(req.params._id, "-password", function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      }).populate('group')
+      }).populate('groups')
+    })
+
+  apiRouter
+    .get('/users/:_id/groups', function(req, res){
+      User.findById(req.params._id, "-password", function(err, record){
+        if(err || !record ) return res.json(err) 
+        res.json(record.groups)
+      }).populate('groups')
     })
 
   apiRouter
@@ -27,7 +35,7 @@ let Message = require('../db/messageSchema').Message
       User.find(req.query, function(err, record){
         if(err || !record ) return res.json(err) 
         res.json(record)
-      }).populate('group')
+      }).populate('groups')
     })
 
   apiRouter
