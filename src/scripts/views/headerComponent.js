@@ -18,7 +18,7 @@ var HeaderComponent = React.createClass({
 					"button1": {"name": "Home", "link": "#home"},
 					"button2": {"name": "Groups", "link": "#allgroups"},
 					"button3": {"name": "CreateGroup", "link": "#registergroup"},
-					"button4": {"name": ACTIONS.loginOrLogout(), "link": "#"+ACTIONS.loginOrLogout()}
+					"button4": {"name": ACTIONS.loginOrLogoutNav(), "link": "#"+ACTIONS.loginOrLogoutNav()}
 				}}/>
 			</nav>
 		)

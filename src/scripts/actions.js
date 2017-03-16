@@ -4,8 +4,16 @@ import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
 
-//sets the logged in status to false by defualt for now, will have continuity later
-STORE._set({loggedIn: false})
+setNavBarLoginStatus()
+function setNavBarLoginStatus(){
+
+    if(User.getCurrentUser()){
+
+        STORE._set({loggedIn: true})
+
+    }
+
+}
 
 //custom actions for the app
 let ACTIONS = {
@@ -55,7 +63,7 @@ let ACTIONS = {
     //returns the user's id for the user auth model given user data
     getCurrentIDUser: function(userData){
 
-         return User.getCurrentUser().get('_id'); 
+        return User.getCurrentUser().get('_id'); 
 
     },
 
@@ -108,11 +116,9 @@ let ACTIONS = {
     },
 
     //sets the navbar 'logout' button to logged in or logged out
-    loginOrLogout: function(){
+    loginOrLogoutNav: function(){
         
         try{
-            
-            console.log(this.getCurrentUserName()? 'logout' : 'login')
             
             if(STORE.data.loggedIn === false){
 
