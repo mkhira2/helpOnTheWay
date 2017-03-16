@@ -1,4 +1,4 @@
-import _ from 'underscore'
+    import _ from 'underscore'
 import Backbone from 'backbone'
 import {GroupCollection, GroupModel, MessageCollection, MessageModel} from './models/models'
 

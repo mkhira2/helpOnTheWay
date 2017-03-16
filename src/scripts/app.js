@@ -22,18 +22,18 @@ var app = function() {
 		},
 
 		showLoginPage: function() {
-			ReactDOM.render(<HomePage />, document.querySelector('.container-fluid'))
+			ReactDOM.render(<HomePage />, document.querySelector('.container'))
 		},
 
 		showGroupsPage: function() {
-			ReactDOM.render(<GroupSignUpView />, document.querySelector('.container-fluid'))
+			ReactDOM.render(<GroupSignUpView />, document.querySelector('.container'))
 		
 		},
 		showSingleGroup: function (groupId){
-			ReactDOM.render(<SingleGroupPage groupID={groupId} />, document.querySelector('.container-fluid'))
+			ReactDOM.render(<SingleGroupPage groupID={groupId} />, document.querySelector('.container'))
 		},
 		showAllGroups: function (){
-			ReactDOM.render(<GroupsPage />, document.querySelector('.container-fluid'))
+			ReactDOM.render(<GroupsPage />, document.querySelector('.container'))
 		},
 		handleLogout: function(){
 			
