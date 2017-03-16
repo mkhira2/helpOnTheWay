@@ -1,10 +1,11 @@
 import React from 'react'
 import Backbone from 'backbone'
 import ACTIONS from '../../actions.js'
-
+console.log('???')
 
 var SignUpComponent = React.createClass({
 	_createAction: function(evt) {
+		console.log('clickedit!')
 		evt.preventDefault()
 		ACTIONS.createNewUser({
 			email:evt.target.email.value,
@@ -25,7 +26,7 @@ var SignUpComponent = React.createClass({
 						<input placeholder="Enter User Name" type="text" name="userName" className="form-control py-1" />
 						<label id="registerLabel">Password</label>
 						<input type="password" className="form-control py-1" name="password" placeholder="Enter Password" />
-						<button type="submit" form="register" className="btn btn-primary mt-1 col-sm-8 offset-sm-2">Submit</button>	
+						<button type="submit" className="btn btn-primary mt-1 col-sm-8 offset-sm-2">Submit</button>	
 					</form>
 				</div>
 			)
