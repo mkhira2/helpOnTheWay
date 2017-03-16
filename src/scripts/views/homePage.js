@@ -56,14 +56,6 @@ const HomePage = React.createClass({
 		
 	}
 
-	// componentDidMount:function(){
-		
-	// 	//listens for a change on the store, sets this component to re-render with new info
-	// 	STORE.on('updateContent', () => {
-	// 		this.setState(STORE.data)
-	// 	})
-		
-	// }
 })
 
 export default HomePage
