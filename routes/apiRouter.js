@@ -5,7 +5,6 @@ let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Group = require('../db/groupSchema.js').Group
 let Message = require('../db/messageSchema').Message
-let nodemailer = require('nodemailer');
   
   apiRouter
     .get('/users', function(req, res){  
