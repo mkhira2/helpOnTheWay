@@ -6,170 +6,108 @@ import STORE from "../../../store"
 import ACTIONS from "../../../actions"
 
 var JoinedGroupsComponent = React.createClass({
-	componentDidMount: function(){
 
-		ACTIONS.getgroupCollection()
+	componentWillMount: function(){
 
-		STORE.on('updateContent', ()=> {
+		var currentIDUser = ACTIONS.getCurrentIDUser()
 
-			this.setState(STORE.data)
+        var userGroups =  ACTIONS.returnGroupsForUser(currentIDUser)
 
-		})
-	},
-	getInitialState: function() {
-		ACTIONS.getgroupCollection()
+        userGroups.then(
+
+        (userGroupsInfo) => {
+    	console.log(userGroupsInfo)
+        STORE._set({'userGroups': userGroupsInfo})
+
+        }, 
+
+        (err) => {
+
+        console.log('did not retrieve data',err)
+
+        })
+
 		this.setState(STORE.data)
-		return STORE.data
+		
 
 	},
+
+
+	makeGroupPreviews: function(){
+
+		var groupPreviewsArray = []
+		console.log(STORE.data.userGroups)
+		for(var i = 0; i < STORE.data.userGroups.length; i++){
+
+			groupPreviewsArray.push(<SingleGroupPreview 
+			group = {STORE.data.userGroups[i]} groupId = {STORE.data.userGroups[i]._id}
+			/>)
+		}
+
+		return groupPreviewsArray
+		
+	},
+
 	render: function(){
-	
+
 		if(this.props.loggedIn === true){
 
 			return(
 
-				<div className = "joinedGroupsContainer container-fluid" id="joinedGroupsContainer">
-
-					<GroupSnapshots 
-
-						groups={this.state.groupCollection.models} 
-
-					/>
-
+				<div className = 'groupPreviewsContainer'>
+					{this.makeGroupPreviews()}	
 				</div>
-
 			)
 
 		}
 
 		else{
 
-			return(
-				null
-			)
-		}
+			return (
 
-	}
-	
-})
-
-var GroupSnapshots = React.createClass({
-
-	_makeSnapShots: function(){
-
-		var allGroups = this.props.groups
-
-		var groupSnapshotsArray = [<DefaultSnapshot />]
-
-		for(var i = 0; i < allGroups.length; i++){
-
-			var currentGroup = allGroups[i]
-			var groupId = currentGroup.get('_id')
-
-			if(ACTIONS.returnUserGroups().includes(groupId)){
-			
-				var snapshotData = getSnapshotData(currentGroup, groupId)
-	    		
-				groupSnapshotsArray.push(
-
-					<SingleGroupSnapshot 
-
-					msgTitle = {snapshotData.messageTitle}
-					msgBody = {snapshotData.messageBody}
-					groupName = {snapshotData.groupName}
-					description = {snapshotData.groupDescription}
-					purpose = {snapshotData.groupPurpose}
-					groupId = {snapshotData.groupId}
-
-					/>)
-			}
-			else{
-				console.log('not in this group', ACTIONS.returnUserGroups())
-
-			}
+					<div></div>
+				)
 
 		}
 
-		return(
-
-			groupSnapshotsArray
 		
-		)
 
 	},
 
-	render: function(){
-
-		return(
-
-			<div className = "groupSnapshots"><h3>your support network</h3>{this._makeSnapShots()}</div>
-
-		)
-
-	}
-	
 })
 
-var SingleGroupSnapshot = React.createClass({
-	_createAction: function(groupID) {
-		
+var SingleGroupPreview = React.createClass({
+
+	_createAction(groupID){
 		location.hash=`group/${groupID}`
-		
 	},
 	render: function(){
+
 		return(
 
-			<div className = "singleGroupSnapshot">
+			<div className = "singleGroupPreview">
 
 				<h4>
-					group: {this.props.groupName}
+					group: {this.props.group.name}
 				</h4>
 
 
 				<p>
-					description: {this.props.description}
+					description: {this.props.group.description}
 				</p>
 
 
 				<p>
-					purpose: {this.props.purpose}
+					purpose: {this.props.group.purpose}
 				</p>
 
 				<button className="btn btn-secondary my-1" id="openGroupButton" onClick={(ev) => this._createAction(this.props.groupId)}>open group</button>
 
 			</div>
-		)
-	}
 
-})
-
-var DefaultSnapshot = React.createClass({
-	render: function(){
-		return(
-			<h4>Visit the groups page to join a group</h4>
 		)
+
 	}
 })
-
-function getSnapshotData(currentGroup, id){
-
-	var messageTitle = " "
-	var messageBody = " "
-	var groupName = currentGroup.attributes.name
-	var groupDescription = currentGroup.get('description')
-	var groupPurpose = currentGroup.get('purpose')
-
-	return(
-		{
-			'messageTitle': messageTitle,
-			'messageBody': messageBody,
-			'groupName': groupName,
-			'groupDescription': groupDescription,
-			'groupPurpose': groupPurpose,
-			'groupId': id
-		}
-
-	)
-}
 
 export default JoinedGroupsComponent
