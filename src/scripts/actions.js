@@ -4,17 +4,6 @@ import {User} from './models/models'
 import STORE from './store'
 import $ from 'jquery'
 
-setNavBarLoginStatus()
-function setNavBarLoginStatus(){
-
-    if(User.getCurrentUser()){
-
-        STORE._set({loggedIn: true})
-
-    }
-
-}
-
 //custom actions for the app
 let ACTIONS = {
 
@@ -50,8 +39,8 @@ let ACTIONS = {
 
             (user) => {
 
-                this.getgroupCollection()
-                STORE._initialize()
+                //adds user's group info to the store
+                
                 STORE._set({loggedIn: true})
                 location.hash=`home`
 
@@ -62,7 +51,7 @@ let ACTIONS = {
     },
 
     //returns the user's id for the user auth model given user data
-    getCurrentIDUser: function(userData){
+    getCurrentIDUser: function(){
 
         return User.getCurrentUser().get('_id'); 
 
@@ -183,6 +172,7 @@ let ACTIONS = {
             if(userInGroup === false){
                 
                 return $.ajax({
+
                     method: 'PUT',
                     type: 'json',
                     url: `api/groups/${groupID}/users/${userID}`},
@@ -261,7 +251,7 @@ let ACTIONS = {
     //posts a new group to the database and loads the new group's page(almost, haven't made a new group page yet)
     createNewGroup:function(groupData){
 
-         var promise = $.ajax({
+        var promise = $.ajax({
 		    method: 'POST',
 		    type: 'json',
 		    url: `api/groups/`,
@@ -270,10 +260,21 @@ let ACTIONS = {
                 description: groupData.description,
                 purpose:groupData.purpose,
             }
-         })
-         promise.then((groupInfo) => {
-             location.hash = `group/${groupInfo._id}`
-         })
+        })
+        promise.then((groupInfo) => {
+            location.hash = `group/${groupInfo._id}`
+        })
+    },
+
+    returnGroupsForUser: function(userId){
+
+        return $.ajax({
+            method: 'GET',
+            type: 'json',
+            url: `api/users/${userId}/groups`
+
+        })
+
     },
     sendEmailToAllMembers:function(messageData,groupID){
 
@@ -296,7 +297,19 @@ let ACTIONS = {
                 "message_html":`${messageData.body}!!`})
             })
         })
+    },
+
+
+}
+
+setNavBarLoginStatus()
+function setNavBarLoginStatus(){
+
+    if(User.getCurrentUser()){
+
+        STORE._set({loggedIn: true})
     }
+
 }
 
 export default ACTIONS
